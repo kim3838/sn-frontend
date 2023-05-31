@@ -11,8 +11,6 @@ module.exports = {
         "./nuxt.config.{js,ts}",
     ],
 
-    mode: 'jit',
-
     prefix: 'tw-',
 
     important: true,
