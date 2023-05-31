@@ -1,17 +1,15 @@
 /** @type {import('tailwindcss').Config} */
+const colors = require('tailwindcss/colors')
+
 module.exports = {
 
-    content: [],
-
-    purge: [
+    content: [
         "./components/**/*.{js,vue,ts}",
         "./layouts/**/*.vue",
         "./pages/**/*.vue",
         "./plugins/**/*.{js,ts}",
         "./nuxt.config.{js,ts}",
     ],
-
-    darkMode: false, // or 'media' or 'class'
 
     mode: 'jit',
 
@@ -26,6 +24,11 @@ module.exports = {
                 serif : ['Almendra', 'Oranienbaum', 'Instrument Serif', 'Gupter', 'Kotta One', 'serif'],
                 mono : ['Spline Sans Mono', 'Roboto Mono', 'monospace'],
             },
+            colors: {
+                green: colors.emerald,
+                yellow: colors.amber,
+                purple: colors.violet,
+            },
             spacing: {
                 'sidebar': '250px',
                 '2px' : '2px',
@@ -34,10 +37,6 @@ module.exports = {
                 '1.3rem' : '1.3rem'
             }
         },
-    },
-
-    variants: {
-        extend: {},
     },
 
     plugins: [
