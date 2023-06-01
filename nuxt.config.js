@@ -38,7 +38,9 @@ export default {
     ],
 
     // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-    plugins: [],
+    plugins: [
+        '~/plugins/axios'
+    ],
 
     // Auto import components: https://go.nuxtjs.dev/config-components
     components: true,
@@ -56,10 +58,63 @@ export default {
         '@nuxtjs/auth-next'
     ],
 
+    auth: {
+        plugins: [ '~/plugins/auth.js' ],
+        redirect: {
+            login: '/login',
+            logout: '/',
+            callback: '/login',
+            home: '/'
+        },
+        strategies: {
+            cookie: {
+                // scheme: '~/schemes/customScheme',
+
+                endpoints: {
+                    // (optional) If set, we send a get request to this endpoint before login
+                    csrf: {url: '/sanctum/csrf-cookie'},
+                    login: { url: '/login', method: 'post' },
+                    logout: { url: '/logout', method: 'post' },
+                    user: {url: '/api/user'}
+                },
+
+                cookie: {
+                    // (optional) If set, we check this cookie existence for loggedIn check
+                    name: 'XSRF-TOKEN'
+                },
+
+                user: {
+                    // field of the response JSON to be used for user value
+                    property: 'values',
+                    // auth will load the user's info using a second HTTP request after a successful login
+                    autoFetch: true
+                },
+
+                token: {
+                    required: false
+                },
+
+                clientId: false,
+
+                grantType: false,
+
+                scope: false
+            }
+        }
+    },
+
+
+    router: {
+        middleware: [
+            'auth'
+        ]
+    },
+
     // Axios module configuration: https://go.nuxtjs.dev/config-axios
     axios: {
         // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
-        baseURL: '/',
+        baseURL: 'http://localhost:8000',
+        credentials: true
     },
 
     // Build Configuration: https://go.nuxtjs.dev/config-build
