@@ -16,6 +16,6 @@
 export default {
     name: 'IndexPage',
 
-    layout: 'default'
+    layout: 'admin'
 }
 </script>
