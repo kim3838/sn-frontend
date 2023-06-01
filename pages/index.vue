@@ -6,6 +6,7 @@
                 <CardSample></CardSample>
                 <br>
                 <hr>
+                <TextSample></TextSample>
             </div>
         </div>
     </div>
@@ -13,6 +14,8 @@
 
 <script>
 export default {
-    name: 'IndexPage'
+    name: 'IndexPage',
+
+    layout: 'default'
 }
 </script>
