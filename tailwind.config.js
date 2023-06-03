@@ -20,7 +20,7 @@ module.exports = {
     theme: {
         extend: {
             fontFamily : {
-                sans : ['Sofia Sans Semi Condensed', 'Roboto', 'Spline Sans', 'Inter', 'sans-serif'],
+                sans : ['Sofia Sans Semi Condensed', 'Spline Sans', 'Roboto', 'Inter', 'sans-serif'],
                 serif : ['Almendra', 'Oranienbaum', 'Instrument Serif', 'Gupter', 'Kotta One', 'serif'],
                 mono : ['Spline Sans Mono', 'Roboto Mono', 'monospace'],
             },
