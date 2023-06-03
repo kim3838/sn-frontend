@@ -4,6 +4,8 @@ const colors = require('tailwindcss/colors')
 module.exports = {
 
     content: [
+        "./components/Jetstream/**/*.{js,vue,ts}",
+        "./components/Logo/**/*.{js,vue,ts}",
         "./components/**/*.{js,vue,ts}",
         "./layouts/**/*.vue",
         "./pages/**/*.vue",

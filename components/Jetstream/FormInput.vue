@@ -4,8 +4,8 @@
     <input
         :disabled="disabled"
         v-on="on"
-        :class="[heightClass, backgroundClass]"
-        class="tw-form-input tw-text-gray-600 tw-border-gray-300 focus:tw-border-gray-300 focus:tw-ring focus:tw-ring-gray-200 focus:tw-ring-opacity-50 tw-rounded-sm tw-shadow-sm"
+        :class="[fontClass, heightClass, backgroundClass]"
+        class="tw-form-input tw-border-gray-300 focus:tw-border-gray-300 focus:tw-ring focus:tw-ring-gray-200 focus:tw-ring-opacity-50 tw-rounded-sm tw-shadow-sm"
         :value="value"
         @input="$emit('input', $event.target.value)"
         ref="input">
@@ -28,6 +28,7 @@ export default {
     computed: {
         heightClass() {
             return {
+                // 1.25rem
                 [null]: '',
                 // 1.25rem
                 'xs': 'tw-h-5',
@@ -37,6 +38,33 @@ export default {
                 'md': 'tw-h-9',
                 // 2.75rem
                 'lg': 'tw-h-11',
+                // 3.5rem
+                'xl': 'tw-h-14',
+                // 4rem
+                '2xl' : 'tw-h-16',
+                // 5rem
+                '3xl' : 'tw-h-20',
+            }[this.height]
+        },
+
+        fontClass(){
+            return {
+                // 0.875rem
+                [null]: 'tw-text-sm',
+                // 0.75rem
+                'xs': 'tw-text-xs',
+                // 0.875rem
+                'sm': 'tw-text-sm',
+                // 1rem
+                'md': 'tw-text-base',
+                // 1.125rem
+                'lg': 'tw-text-lg',
+                // 1.25rem
+                'xl': 'tw-text-xl',
+                // 1.875rem
+                '2xl': 'tw-text-3xl',
+                // 3rem
+                '3xl': 'tw-text-5xl',
             }[this.height]
         },
 
