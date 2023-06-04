@@ -33,14 +33,14 @@ export default {
         script:[
             { src: 'js/common/moment.min.js', defer: true },
             { src: 'js/common/jquery.min.js', defer: true },
-            { src: 'js/daterangepicker/index.js', defer: true }
+            { src: 'js/datetimepicker/index.js', defer: true }
         ]
     },
 
     // Global CSS: https://go.nuxtjs.dev/config-css
     css: [
         '@/assets/css/main.css',
-        '@/assets/css/daterangepicker.css'
+        '@/assets/css/datetimepicker.css'
     ],
 
     // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins

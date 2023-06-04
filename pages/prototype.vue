@@ -126,30 +126,19 @@
 </template>
 
 <script>
+import DateTimePickerMixin from '~/mixins/datetimepicker';
+
 export default {
     name: "prototype",
 
     auth: 'guest',
 
+    mixins: [
+        DateTimePickerMixin
+    ],
+
     mounted(){
-        $('#bootstrapDateTimePicker').daterangepicker({
-            "singleDatePicker": true,
-            "showDropdowns": true,
-            "timePicker": true,
-            "timePicker24Hour": true,
-            "timePickerSeconds": true,
-            "autoApply": false,
-            "autoUpdateInput": false,
-            locale: {
-                format: 'YYYY-MM-DD HH:mm:ss'
-            }
-        }).on('apply.daterangepicker', function(event, picker){
-            console.log({value : picker.startDate.format('YYYY-MM-DD HH:mm:ss')});
-            // window.VueApp.$store.commit('setFormFilterValue', {
-            //     key: 'dateTime',
-            //     value: picker.startDate.format('YYYY-MM-DD HH:mm:ss')
-            // })
-        });
+
     },
 
     data(){
