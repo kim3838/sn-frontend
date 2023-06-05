@@ -101,6 +101,18 @@
 
         <div class="tw-grid tw-gap-2 tw-grid-cols-1 sm:tw-grid-cols-2 lg:tw-grid-cols-2 xl:tw-grid-cols-4 2xl:tw-grid-cols-8 tw-font-medium">
             <div class="tw-block tw-border tw-border-neutral-200">
+                <FormInputLabel for="bootstrapDatePicker" value="Date" />
+                <FormInput
+                    :height="'sm'"
+                    class="tw-w-full"
+                    type="text"
+                    id="bootstrapDatePicker"
+                    v-model="dateTime"
+                    autocomplete="off"
+                    :disabled="false" />
+            </div>
+
+            <div class="tw-block tw-border tw-border-neutral-200">
                 <FormInputLabel for="bootstrapDateTimePicker" value="DateTime" />
                 <FormInput
                     :height="'sm'"
@@ -112,13 +124,19 @@
                     :disabled="false" />
             </div>
 
-            <div class="tw-flex tw-items-start tw-justify-start tw-block tw-border tw-border-neutral-200">
+            <div class="tw-block tw-border tw-border-neutral-200">
+                <FormInputLabel for="bootstrapMonthPicker" value="Month" />
+                <FormInput
+                    :height="'sm'"
+                    class="tw-w-full"
+                    type="text"
+                    id="bootstrapMonthPicker"
+                    v-model="monthLabel"
+                    autocomplete="off"
+                    :disabled="false" />
             </div>
 
-            <div class="tw-flex tw-items-start tw-justify-start tw-block tw-border tw-border-neutral-200">
-            </div>
-
-            <div class="tw-flex tw-items-start tw-justify-start tw-block tw-border tw-border-neutral-200">
+            <div class="tw-block tw-border tw-border-neutral-200">
             </div>
         </div>
 
@@ -143,7 +161,10 @@ export default {
 
     data(){
         return{
-            dateTime: this.$moment().startOf('day').format('YYYY-MM-DD HH:mm:ss')
+            date: this.$moment().format('YYYY-MM-DD'),
+            dateTime: this.$moment().startOf('day').format('YYYY-MM-DD HH:mm:ss'),
+            monthValue: this.$moment().format('YYYY-MM'),
+            monthLabel: this.$moment().format('YYYY MMMM'),
         }
     },
 
