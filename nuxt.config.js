@@ -55,7 +55,8 @@ export default {
         dirs: [
             '~/components',
             '~/components/Logo',
-            '~/components/Jetstream'
+            '~/components/Jetstream',
+            '~/components/Form',
         ]
     },
 
@@ -69,9 +70,9 @@ export default {
                     light: {
                         primary: '#757575',
                         accent: '#616161'
-                    },
-                },
-            },
+                    }
+                }
+            }
         }]
     ],
 
