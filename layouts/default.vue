@@ -1,6 +1,6 @@
 <template>
-    <div>
-        <div class="tw-min-h-screen tw-bg-gray-100 wrapper tw-overflow-x-hidden tw-overflow-y-hidden">
+    <div class="tw-bg-gradient-to-br tw-bg-transparent tw-from-slate-200/20 tw-via-transparent tw-to-slate-400/50">
+        <div class="tw-min-h-screen wrapper tw-overflow-x-hidden tw-overflow-y-hidden">
 
             <nav
                 class="tw-border-b tw-border-gray-100"

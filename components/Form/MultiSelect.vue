@@ -53,7 +53,13 @@
 </template>
 
 <script>
+import FormMixin from "@/mixins/form";
+
 export default {
+    mixins: [
+        FormMixin
+    ],
+
     props: {
         prependIcon: {
             type: String,

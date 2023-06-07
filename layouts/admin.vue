@@ -1,5 +1,5 @@
 <template>
-    <div class="tw-min-h-screen tw-bg-gray-100 wrapper tw-overflow-x-hidden tw-overflow-y-hidden">
+    <div class="tw-min-h-screen wrapper tw-overflow-x-hidden tw-overflow-y-hidden">
 
         <!-- Page Header -->
         <nav

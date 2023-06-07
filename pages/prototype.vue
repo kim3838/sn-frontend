@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="tw-max-w-full">
+        <div v-if="true" class="tw-max-w-full">
             <v-app class="tw-font-sans">
                 <v-container>
                     <div class="tw-space-y-2">
@@ -146,12 +146,16 @@
                         </div>
 
                         <div class="tw-grid tw-gap-2 tw-grid-cols-1 sm:tw-grid-cols-2 lg:tw-grid-cols-2 xl:tw-grid-cols-4 2xl:tw-grid-cols-8 tw-font-medium">
-                            <div class="tw-block tw-border tw-border-neutral-200">
+                            <div class="tw-block tw-border tw-border-neutral-200 tw-col-span-2">
                                 <FormInputLabel value="Static Single Select" />
                                 <SingleSelect
                                     place-holder-class="'tw-text-xs'"
                                     v-bind:select-model.sync="filters.location.selected"
                                     :selection="filters.location.selection"/>
+                            </div>
+                            <div class="tw-block tw-border tw-border-neutral-200 tw-col-span-2">
+                                <FormInputLabel value="Static Multi Select" />
+                                <MultiSelect place-holder-class="'tw-text-xs'" :filter="filters.status"/>
                             </div>
                         </div>
 
@@ -167,11 +171,10 @@
 
 <script>
 import DateTimePickerMixin from '~/mixins/datetimepicker';
-import SingleSelect from "@/components/Form/SingleSelect";
 
 export default {
     name: "prototype",
-    components: {SingleSelect},
+
     auth: 'guest',
 
     mixins: [
@@ -253,9 +256,6 @@ export default {
                 },
             },
         }
-    },
-
-    methods:{
     },
 
     watch:{
