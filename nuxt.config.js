@@ -40,6 +40,7 @@ export default {
     // Global CSS: https://go.nuxtjs.dev/config-css
     css: [
         '@/assets/css/main.css',
+        '@/assets/css/tailwind.css',
         '@/assets/css/datetimepicker.css'
     ],
 
@@ -62,6 +63,16 @@ export default {
     buildModules: [
         // https://go.nuxtjs.dev/tailwindcss
         '@nuxtjs/tailwindcss',
+        ['@nuxtjs/vuetify', {
+            theme: {
+                themes: {
+                    light: {
+                        primary: '#757575',
+                        accent: '#616161'
+                    },
+                },
+            },
+        }]
     ],
 
     // Modules: https://go.nuxtjs.dev/config-modules
