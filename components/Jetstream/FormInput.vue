@@ -5,7 +5,7 @@
         :disabled="disabled"
         v-on="on"
         :class="[fontClass, heightClass, backgroundClass]"
-        class="tw-form-input tw-border-gray-300 focus:tw-border-gray-300 focus:tw-ring focus:tw-ring-gray-200 focus:tw-ring-opacity-50 tw-rounded-sm tw-shadow-sm"
+        class="tw-pl-1 tw-form-input tw-border-gray-300 focus:tw-border-gray-300 focus:tw-ring focus:tw-ring-gray-200 focus:tw-ring-opacity-50 tw-rounded-sm tw-shadow-sm"
         :value="value"
         @input="$emit('input', $event.target.value)"
         ref="input">
@@ -28,8 +28,8 @@ export default {
     computed: {
         heightClass() {
             return {
-                // 1.25rem
-                [null]: '',
+                // 2.25rem
+                [null]: 'tw-h-9',
                 // 1.25rem
                 'xs': 'tw-h-5',
                 // 1.75rem
@@ -49,8 +49,8 @@ export default {
 
         fontClass(){
             return {
-                // 0.875rem
-                [null]: 'tw-text-sm',
+                // 1rem
+                [null]: 'tw-text-base',
                 // 0.75rem
                 'xs': 'tw-text-xs',
                 // 0.875rem
