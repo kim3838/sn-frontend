@@ -44,8 +44,7 @@
         <template v-slot:item="{ active, item, attrs, on }">
             <v-list-item dense v-on="on" v-bind="attrs" #default="{ active }">
                 <v-row dense no-gutters align="center">
-                    <Checkbox :height="'sm'" :checked="active" />
-                    <div class="tw-ml-1 tw-text-xs tw-text-gray-500" v-text="item.text"></div>
+                    <Checkbox :height="'sm'" :checked="active" :label="item.text" />
                 </v-row>
             </v-list-item>
         </template>
