@@ -39,10 +39,10 @@
             heightClass() {
                 return {
                     [null]: 'tw-h-4 tw-w-4',
-                    // 0.875rem
-                    'sm': 'tw-h-3.5 tw-w-3.5',
+                    // 0.75rem
+                    'sm': 'tw-h-3 tw-w-3',
                     // 1rem
-                    'md': 'tw-h-4 tw-w-4',
+                    'md': 'tw-h-3.5 tw-w-3.5',
                     // 1.5rem
                     'lg': 'tw-h-6 tw-w-6',
                 }[this.height]
