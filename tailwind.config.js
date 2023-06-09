@@ -32,6 +32,7 @@ module.exports = {
             spacing: {
                 'sidebar': '250px',
                 '2px' : '2px',
+                '5px' : '5px',
                 '12px' : '12px',
                 '1rem' : '1rem',
                 '1.3rem' : '1.3rem'
