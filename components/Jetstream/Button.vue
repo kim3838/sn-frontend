@@ -27,7 +27,7 @@
         computed: {
             heightClass() {
                 return {
-                    [null]: 'tw-h-7',
+                    [null]: 'tw-h-9',
                     // 1.25rem
                     'xs': 'tw-h-5',
                     // 1.75rem
@@ -43,7 +43,7 @@
 
             spacingClass() {
                 return {
-                    [null]: 'tw-px-1.5 tw-py-1.5',
+                    [null]: 'tw-px-2 tw-py-1.5',
                     'xs': 'tw-px-1.5 tw-py-1.5',
                     'sm': 'tw-px-1.5 tw-py-1.5',
                     'md': 'tw-px-2 tw-py-1.5',
@@ -54,7 +54,7 @@
 
             fontClass(){
                 return {
-                    [null]: 'tw-text-sm',
+                    [null]: 'tw-text-base',
                     // 0.75rem
                     'xs': 'tw-text-xs',
                     // 0.875rem
