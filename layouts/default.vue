@@ -1,5 +1,5 @@
 <template>
-    <div class="tw-bg-gradient-to-br tw-bg-transparent tw-from-slate-200/20 tw-via-transparent tw-to-slate-400/50">
+    <div class="tw-font-sans tw-bg-gradient-to-br tw-bg-transparent tw-from-slate-200/20 tw-via-transparent tw-to-slate-400/50">
         <div class="tw-min-h-screen wrapper tw-overflow-x-hidden tw-overflow-y-hidden">
 
             <nav
@@ -54,19 +54,5 @@ export default {
 </script>
 
 <style>
-html {
-    font-size: 16px;
-    word-spacing: 1px;
-    -ms-text-size-adjust: 100%;
-    -webkit-text-size-adjust: 100%;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
 
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
-    margin: 0;
-}
 </style>

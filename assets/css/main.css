@@ -2,7 +2,19 @@
 html{
     overflow-y: auto !important;
     font-size: initial !important;
+    font-family: initial;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
+
+/**,*/
+/**::before,*/
+/**::after {*/
+/*    box-sizing: border-box;*/
+/*    margin: 0;*/
+/*}*/
 
 body{
     text-rendering: optimizeLegibility;
