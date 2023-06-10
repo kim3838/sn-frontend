@@ -117,6 +117,14 @@ select{
     background: rgb(229 231 235) !important;
 }
 
+/*Select list item color*/
+.theme--light.v-list-item:not(.v-list-item--active):not(.v-list-item--disabled),
+.theme--light.v-list,
+.theme--light.v-sheet,
+.v-application .primary--text{
+    color: inherit !important;
+}
+
 .v-chip.v-size--x-small{
     border-radius: 2px !important;
 }
