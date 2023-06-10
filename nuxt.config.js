@@ -36,7 +36,7 @@ export default {
             { src: 'js/datetimepicker/index.js', defer: true }
         ],
         bodyAttrs: {
-            class: 'tw-text-darker'
+            class: 'tw-text-darker tw-font-sans'
         }
     },
 

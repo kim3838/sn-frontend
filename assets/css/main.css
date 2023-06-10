@@ -80,6 +80,7 @@ body{
 
 .v-application{
     background-color: transparent !important;
+    font-family: inherit !important;
 }
 
 input{
