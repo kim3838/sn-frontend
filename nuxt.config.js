@@ -34,7 +34,10 @@ export default {
             { src: 'js/common/moment.min.js', defer: true },
             { src: 'js/common/jquery.min.js', defer: true },
             { src: 'js/datetimepicker/index.js', defer: true }
-        ]
+        ],
+        bodyAttrs: {
+            class: 'tw-text-darker'
+        }
     },
 
     // Global CSS: https://go.nuxtjs.dev/config-css
@@ -65,14 +68,7 @@ export default {
         // https://go.nuxtjs.dev/tailwindcss
         '@nuxtjs/tailwindcss',
         ['@nuxtjs/vuetify', {
-            theme: {
-                themes: {
-                    light: {
-                        primary: '#757575',
-                        accent: '#616161'
-                    }
-                }
-            }
+            theme: { disable: true }
         }]
     ],
 

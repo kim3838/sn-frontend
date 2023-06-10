@@ -24,11 +24,6 @@ module.exports = {
                 serif : ['Almendra', 'Oranienbaum', 'Instrument Serif', 'Gupter', 'Kotta One', 'serif'],
                 mono : ['Spline Sans Mono', 'Roboto Mono', 'monospace'],
             },
-            colors: {
-                green: colors.emerald,
-                yellow: colors.amber,
-                purple: colors.violet,
-            },
             spacing: {
                 'sidebar': '250px',
                 '2px' : '2px',
@@ -36,8 +31,14 @@ module.exports = {
                 '12px' : '12px',
                 '1rem' : '1rem',
                 '1.3rem' : '1.3rem'
+            },
+            colors: {
+                'lighter': '#C9D8E5',
+                'light': '#95B3CA',
+                'dark': '#8AA5BD',
+                'darker': '#507394',
             }
-        },
+        }
     },
 
     plugins: [

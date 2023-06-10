@@ -3,7 +3,7 @@
         :disabled="disabled"
         :class="[heightClass, spacingClass, fontClass]"
         :type="type"
-        class="tw-inline-flex tw-items-center tw-bg-gray-600 tw-border tw-border-transparent tw-rounded-sm tw-font-medium tw-tracking-wide tw-text-white hover:tw-bg-gray-700 active:tw-bg-gray-900 focus:tw-outline-none focus:tw-border-gray-900 focus:tw-ring focus:tw-ring-gray-300 disabled:tw-opacity-25 tw-transition">
+        class="tw-inline-flex tw-items-center tw-bg-darker tw-border tw-border-transparent tw-rounded-sm tw-font-medium tw-tracking-wide tw-text-white hover:tw-bg-dark active:tw-bg-dark focus:tw-outline-none focus:tw-border-light focus:tw-ring focus:tw-ring-light disabled:tw-opacity-25 tw-transition">
         <slot></slot>
     </button>
 </template>

@@ -5,7 +5,7 @@
 .daterangepicker {
   position: absolute;
   font-family: inherit;
-  color: #374151;
+  /*color: #374151;*/
   background-color: #fff;
   border: 1px solid #ddd;
   width: 278px;
@@ -211,9 +211,10 @@
   border-radius: 4px;
 }
 
+/*Datetime picker active background color*/
 .daterangepicker td.active, .daterangepicker td.active:hover {
   /*background-color: #357ebd;*/
-  background-color: rgb(75, 85, 99);
+  background-color: #507394;
   border-color: transparent;
   color: #fff;
 }

@@ -118,9 +118,13 @@ select{
 }
 
 /*Select list item color*/
-.theme--light.v-list-item:not(.v-list-item--active):not(.v-list-item--disabled),
+.theme--light.v-application,
+.theme--light.v-icon,
 .theme--light.v-list,
+.theme--light.v-input,
 .theme--light.v-sheet,
+.theme--light.v-select .v-select__selections,
+.theme--light.v-list-item:not(.v-list-item--active):not(.v-list-item--disabled),
 .v-application .primary--text{
     color: inherit !important;
 }
