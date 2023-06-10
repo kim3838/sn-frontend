@@ -5,7 +5,7 @@
         :disabled="disabled"
         v-on="on"
         :class="[fontClass, heightClass, backgroundClass]"
-        class="tw-pl-1 tw-form-input tw-border-gray-300 focus:tw-border-gray-300 focus:tw-ring focus:tw-ring-gray-200 focus:tw-ring-opacity-50 tw-rounded-sm tw-shadow-sm"
+        class="tw-pl-1 tw-form-input tw-border-neutral-200 focus:tw-border-light focus:tw-ring focus:tw-ring-light focus:tw-ring-opacity-25 tw-rounded-sm tw-shadow-sm"
         :value="value"
         @input="$emit('input', $event.target.value)"
         ref="input">

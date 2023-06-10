@@ -1,6 +1,6 @@
 <template>
-    <v-app class="tw-font-sans tw-border tw-border-red-700">
-        <div class="tw-font-sans tw-bg-gradient-to-br tw-bg-transparent tw-from-white tw-via-transparent tw-to-light/50">
+    <v-app>
+        <div class="tw-bg-gradient-to-br tw-bg-transparent tw-from-white tw-via-transparent tw-to-light/50">
             <div class="tw-min-h-screen wrapper tw-overflow-x-hidden tw-overflow-y-hidden">
 
                 <nav
