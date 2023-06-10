@@ -12,11 +12,11 @@
         multiple
         outlined
         :class="[backgroundClass]"
-        class="tw-text-xs tw-text-gray-500 tw-rounded-sm tw-shadow-sm"
+        class="tw-text-xs tw-rounded-sm tw-shadow-sm"
         placeholder="None Selected">
         <template v-slot:selection="{ item, index }">
-            <div v-if="index === 0 && filter.selected.length < 3" class="tw-text-gray-600 tw-truncate" :class="placeHolderClass" style="max-width: 90%;" v-text="selectionItems"></div>
-            <div v-if="index === 1 && filter.selected.length > 2" class="tw-text-gray-600 tw-truncate" :class="placeHolderClass" style="max-width: 90%;" v-text="selectionSummary"></div>
+            <div v-if="index === 0 && filter.selected.length < 3" class="tw-truncate" :class="placeHolderClass" style="max-width: 90%;" v-text="selectionItems"></div>
+            <div v-if="index === 1 && filter.selected.length > 2" class="tw-truncate" :class="placeHolderClass" style="max-width: 90%;" v-text="selectionSummary"></div>
         </template>
         <!-- Icon color matching Jetstream checkbox color : tailwind text-gray-600 rgb(75 85 99) -->
         <template v-slot:prepend-item>
@@ -33,7 +33,7 @@
                         placeholder="Search"
                         :height="'xs'"
                         type="text"
-                        class="tw-block tw-w-full tw-text-gray-500 tw-text-xs"
+                        class="tw-block tw-w-full"
                         @input="searchFilterSelection(filter)"
                         v-model="filter.search"
                         autocomplete="off" />
