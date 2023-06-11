@@ -214,7 +214,7 @@
 /*Datetime picker active background color*/
 .daterangepicker td.active, .daterangepicker td.active:hover {
   /*background-color: #357ebd;*/
-  background-color: #507394;
+  background-color: #323232;
   border-color: transparent;
   color: #fff;
 }

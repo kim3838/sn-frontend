@@ -3,7 +3,32 @@
         :disabled="disabled"
         :class="[heightClass, spacingClass, fontClass]"
         :type="type"
-        class="tw-inline-flex tw-items-center tw-bg-darker tw-border tw-border-transparent tw-rounded-sm tw-font-medium tw-tracking-wide tw-text-white hover:tw-bg-dark active:tw-bg-dark focus:tw-outline-none focus:tw-border-light focus:tw-ring focus:tw-ring-light disabled:tw-opacity-25 tw-transition">
+        class="
+            tw-inline-flex
+            tw-items-center
+            tw-bg-darker
+            tw-rounded-sm
+            tw-font-medium
+            tw-tracking-wide
+            tw-text-white
+            hover:tw-bg-darker/90
+            active:tw-bg-darker/90
+            focus:tw-outline-none
+            focus:tw-border-light
+            focus:tw-ring
+            focus:tw-ring-light
+            disabled:tw-opacity-25
+            tw-transition
+            tw-relative">
+        <div
+            class="
+                shade
+                tw-rounded-sm
+                tw-bg-gradient-to-br
+                tw-bg-transparent
+                tw-from-dark/90
+                tw-via-transparent
+                tw-to-dark/50"></div>
         <slot></slot>
     </button>
 </template>
@@ -77,3 +102,13 @@
         },
     }
 </script>
+
+<style scoped>
+.shade{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+</style>

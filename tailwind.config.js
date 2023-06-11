@@ -33,10 +33,11 @@ module.exports = {
                 '1.3rem' : '1.3rem'
             },
             colors: {
-                'lighter': '#C9D8E5',
-                'light': '#95B3CA',
-                'dark': '#8AA5BD',
-                'darker': '#507394',
+                'lighter': '#b4b4b4',
+                'light': '#969696',
+                'dark': '#787878',
+                'darker': '#323232',
+                'accent': '#323232',
             }
         }
     },
