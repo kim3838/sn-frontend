@@ -68,7 +68,7 @@
                         class="tw-w-full"
                         type="text"
                         id="bootstrapDatePicker"
-                        v-model="dateTime"
+                        v-model="$store.state.form.filters.date"
                         autocomplete="off"
                         :disabled="false" />
                 </div>
@@ -80,7 +80,7 @@
                         class="tw-w-full"
                         type="text"
                         id="bootstrapDateTimePicker"
-                        v-model="dateTime"
+                        v-model="$store.state.form.filters.dateTime"
                         autocomplete="off"
                         :disabled="false" />
                 </div>
@@ -92,7 +92,7 @@
                         class="tw-w-full"
                         type="text"
                         id="bootstrapMonthPicker"
-                        v-model="monthLabel"
+                        v-model="$store.state.form.filters.monthLabel"
                         autocomplete="off"
                         :disabled="false" />
                 </div>
@@ -112,7 +112,7 @@
                 </div>
                 <div class="tw-block tw-border tw-border-neutral-200 tw-col-span-2">
                     <FormInputLabel value="Static Multi Select" />
-                    <MultiSelect place-holder-class="'tw-text-xs'" :filter="filters.status"/>
+                    <MultiSelect place-holder-class="'tw-text-xs'" :filter="filters.category"/>
                 </div>
             </div>
 
@@ -143,10 +143,6 @@ export default {
         return{
             search: '',
             anotherSearch: '',
-            date: this.$moment().format('YYYY-MM-DD'),
-            dateTime: this.$moment().startOf('day').format('YYYY-MM-DD HH:mm:ss'),
-            monthValue: this.$moment().format('YYYY-MM'),
-            monthLabel: this.$moment().format('YYYY MMMM'),
             filters: {
                 location : {
                     selection: [

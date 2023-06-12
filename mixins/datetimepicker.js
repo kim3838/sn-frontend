@@ -1,5 +1,7 @@
 export default {
     mounted() {
+        let that = this;
+
         console.log("DateTimePickerMixin mounted");
 
         $('#bootstrapDatePicker').daterangepicker({
@@ -10,11 +12,11 @@ export default {
                 format: 'YYYY-MM-DD'
             }
         }, function(start, end, label) {
-            console.log({value : start.format('YYYY-MM-DD')});
-            // window.VueApp.$store.commit('setFormFilterValue', {
-            //     key: 'date',
-            //     value: start.format('YYYY-MM-DD')
-            // })
+
+            that.$store.commit('form/setFormFilterValue', {
+                key: 'date',
+                value: start.format('YYYY-MM-DD')
+            })
         });
 
         $('#bootstrapDateTimePicker').daterangepicker({
@@ -29,11 +31,10 @@ export default {
                 format: 'YYYY-MM-DD HH:mm:ss'
             }
         }).on('apply.daterangepicker', function(event, picker){
-            console.log({value : picker.startDate.format('YYYY-MM-DD HH:mm:ss')});
-            // window.VueApp.$store.commit('setFormFilterValue', {
-            //     key: 'dateTime',
-            //     value: picker.startDate.format('YYYY-MM-DD HH:mm:ss')
-            // })
+            that.$store.commit('form/setFormFilterValue', {
+                key: 'dateTime',
+                value: picker.startDate.format('YYYY-MM-DD HH:mm:ss')
+            })
         });
 
         $('#bootstrapMonthPicker').daterangepicker({
@@ -66,20 +67,18 @@ export default {
                 ? picker.startDate.format('YYYY-MM')
                 : picker.selectedYear + '-' + (picker.selectedMonth + 1);
 
-            let value = moment(picked, 'YYYY-MM-DD').format('YYYY-MM');
-            let label = moment(picked, 'YYYY-MM').format('YYYY MMMM');
+            let value = that.$moment(picked, 'YYYY-MM-DD').format('YYYY-MM');
+            let label = that.$moment(picked, 'YYYY-MM').format('YYYY MMMM');
 
-            console.log({[label] : value});
+            that.$store.commit('form/setFormFilterValue', {
+                key: 'monthValue',
+                value: value
+            });
 
-            // window.VueApp.$store.commit('setFormFilterValue', {
-            //     key: 'monthValue',
-            //     value: value
-            // });
-            //
-            // window.VueApp.$store.commit('setFormFilterValue', {
-            //     key: 'monthLabel',
-            //     value: label
-            // })
+            that.$store.commit('form/setFormFilterValue', {
+                key: 'monthLabel',
+                value: label
+            })
 
         });
     },

@@ -38,6 +38,11 @@ module.exports = {
                 'dark': '#787878',
                 'darker': '#323232',
                 'accent': '#323232',
+                // 'lighter': '#F8ECD1',
+                // 'light': '#DEB6AB',
+                // 'dark': '#AC7D88',
+                // 'darker': '#85586F',
+                // 'accent': '#85586F',
             }
         }
     },
