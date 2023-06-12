@@ -87,6 +87,10 @@ body{
     transition: none !important;
 }
 
+.v-ripple__container {
+    display:none !important;
+}
+
 .v-application--wrap{
     min-height: initial !important;
 }
