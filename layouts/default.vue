@@ -15,9 +15,6 @@
                                     <NavLink :to="'/prototype'" :active="isRouteActive('prototype')">
                                         Prototype
                                     </NavLink>
-                                    <NavLink :to="'/vuetify'" :active="isRouteActive('vuetify')">
-                                        Vuetify
-                                    </NavLink>
                                     <NavLink :to="'/login'" :active="isRouteActive('login')">
                                         Login
                                     </NavLink>

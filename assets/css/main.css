@@ -74,6 +74,19 @@ body{
     box-sizing: border-box;
 }
 
+.v-enter,
+.v-leave-to,
+.v-menu-transition-enter,
+.v-menu-transition-leave-to,
+.fade-transition-enter-active,
+.fade-transition-leave-active,
+.v-menu-transition-enter-active,
+.v-menu-transition-leave-active,
+.v-list,
+.v-list-item--link:before {
+    transition: none !important;
+}
+
 .v-application--wrap{
     min-height: initial !important;
 }
