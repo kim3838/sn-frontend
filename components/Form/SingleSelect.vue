@@ -22,7 +22,12 @@
         <template v-slot:item="{ active, item, attrs, on }">
             <v-list-item dense v-on="on" v-bind="attrs" #default="{ active }">
                 <v-row dense no-gutters align="center">
-                    <v-icon class="tw-text-gray-500 tw-h-[1rem] tw-w-[1rem]">mdi-square-small</v-icon>
+                    <svg v-if="active" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24">
+                        <path fill="currentColor" d="M12 20a8 8 0 0 1-8-8a8 8 0 0 1 8-8a8 8 0 0 1 8 8a8 8 0 0 1-8 8m0-18A10 10 0 0 0 2 12a10 10 0 0 0 10 10a10 10 0 0 0 10-10A10 10 0 0 0 12 2m0 5a5 5 0 0 0-5 5a5 5 0 0 0 5 5a5 5 0 0 0 5-5a5 5 0 0 0-5-5Z"/>
+                    </svg>
+                    <svg v-else xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24">
+                        <path fill="currentColor" d="M12 20a8 8 0 0 1-8-8a8 8 0 0 1 8-8a8 8 0 0 1 8 8a8 8 0 0 1-8 8m0-18A10 10 0 0 0 2 12a10 10 0 0 0 10 10a10 10 0 0 0 10-10A10 10 0 0 0 12 2Z"/>
+                    </svg>
                     <div class="tw-ml-1 tw-text-sm" v-text="item.text"></div>
                 </v-row>
             </v-list-item>
