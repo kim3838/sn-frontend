@@ -1,5 +1,5 @@
 <template>
-    <label :class="[fontClass]" class="tw-leading-4 tw-flex tw-align-start">
+    <label :class="[fontClass]" class="tw-leading-5 tw-flex tw-align-start">
         <span v-if="value">{{ value }}</span>
         <span v-else><slot></slot></span>
     </label>
