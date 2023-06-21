@@ -23,7 +23,7 @@
             <v-list-item dense v-on="on" v-bind="attrs" #default="{ active }">
                 <v-row dense no-gutters align="center">
                     <v-icon class="tw-text-gray-500 tw-h-[1rem] tw-w-[1rem]">mdi-square-small</v-icon>
-                    <div class="tw-ml-1 tw-text-xs" v-text="item.text"></div>
+                    <div class="tw-ml-1 tw-text-sm" v-text="item.text"></div>
                 </v-row>
             </v-list-item>
         </template>
