@@ -20,7 +20,7 @@ module.exports = {
     theme: {
         extend: {
             fontFamily : {
-                sans : ['Sofia Sans Semi Condensed', 'Spline Sans', 'Roboto', 'Inter', 'sans-serif'],
+                sans : ['Sofia Sans Semi Condensed', 'Spline Sans', 'Roboto', 'Roboto Condensed', 'Inter', 'sans-serif'],
                 serif : ['Almendra', 'Oranienbaum', 'Instrument Serif', 'Gupter', 'Kotta One', 'serif'],
                 mono : ['Spline Sans Mono', 'Roboto Mono', 'monospace'],
             },
@@ -37,12 +37,12 @@ module.exports = {
                 'light': '#969696',
                 'dark': '#787878',
                 'darker': '#323232',
-                'accent': '#323232',
+                'accent': '#646464',
                 // 'lighter': '#F8ECD1',
                 // 'light': '#DEB6AB',
                 // 'dark': '#AC7D88',
                 // 'darker': '#85586F',
-                // 'accent': '#85586F',
+                // 'accent': '#80506b',
             }
         }
     },
