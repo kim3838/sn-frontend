@@ -12,13 +12,13 @@
         multiple
         outlined
         :class="[backgroundClass]"
-        class="tw-text-xs tw-rounded-sm tw-shadow-sm"
+        class="tw-text-sm tw-rounded-sm tw-shadow-sm"
         placeholder="None Selected">
         <template v-slot:selection="{ item, index }">
             <div v-if="index === 0 && filter.selected.length < 3" class="tw-truncate" :class="placeHolderClass" style="max-width: 90%;" v-text="selectionItems"></div>
             <div v-if="index === 1 && filter.selected.length > 2" class="tw-truncate" :class="placeHolderClass" style="max-width: 90%;" v-text="selectionSummary"></div>
         </template>
-        <!-- Icon color matching Jetstream checkbox color : tailwind text-gray-600 rgb(75 85 99) -->
+
         <template v-slot:prepend-item>
             <div class="tw-flex tw-items-center tw-justify-start tw-px-3" style="min-height: 2.1rem !important;">
                 <div class="tw-flex tw-items-center">

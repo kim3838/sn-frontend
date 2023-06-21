@@ -12,9 +12,9 @@
         hide-details
         outlined
         :class="[backgroundClass]"
-        class="tw-text-xs tw-rounded-sm tw-shadow-sm"
+        class="tw-text-sm tw-rounded-sm tw-shadow-sm"
         placeholder="None Selected">
-        <!-- Icon color matching Jetstream checkbox color : tailwind text-gray-600 rgb(75 85 99) -->
+
         <template v-slot:prepend-item>
             <div class="tw-bg-transparent tw-flex tw-items-center tw-justify-start tw-px-3" style="min-height: 2.1rem !important;"></div>
             <div class="tw-h-px tw-w-full tw-bg-gradient-to-r tw-from-gray-300 tw-via-gray-100 tw-to-gray-300"></div>

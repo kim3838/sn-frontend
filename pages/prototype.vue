@@ -106,13 +106,15 @@
                 <div class="tw-block tw-border tw-border-neutral-200 tw-col-span-2">
                     <FormInputLabel value="Static Single Select" />
                     <SingleSelect
-                        place-holder-class="'tw-text-xs'"
+                        :prepend-icon="'mdi-book-information-variant'"
                         v-bind:select-model.sync="filters.location.selected"
                         :selection="filters.location.selection"/>
                 </div>
                 <div class="tw-block tw-border tw-border-neutral-200 tw-col-span-2">
                     <FormInputLabel value="Static Multi Select" />
-                    <MultiSelect place-holder-class="'tw-text-xs'" :filter="filters.category"/>
+                    <MultiSelect
+                        :prepend-icon="'mdi-food-kosher'"
+                        :filter="filters.category"/>
                 </div>
             </div>
 
