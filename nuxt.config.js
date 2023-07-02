@@ -60,7 +60,7 @@ export default {
             '~/components',
             '~/components/Logo',
             '~/components/Jetstream',
-            '~/components/Form',
+            '~/components/Form'
         ]
     },
 
@@ -136,7 +136,13 @@ export default {
     axios: {
         // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
         baseURL: 'http://localhost:8000',
-        credentials: true
+        credentials: true,
+        https: false,
+        headers: {
+            common: {
+                'Accept': 'application/json, text/plain, */*'
+            }
+        }
     },
 
     // Build Configuration: https://go.nuxtjs.dev/config-build
