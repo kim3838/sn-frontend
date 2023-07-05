@@ -46,11 +46,11 @@
                             <client-only>
                                 <Dropdown :align="'right'" :width="'60'">
                                     <template #trigger>
-                                        <span class="tw-inline-flex tw-rounded-sm">
-                                            <button class="tw-bg-transparent tw-inline-flex tw-items-center tw-pl-3 tw-py-1 tw-border tw-border-transparent tw-text-sm tw-leading-4 tw-font-medium tw-text-gray-500 tw-bg-white hover:tw-text-gray-700 focus:tw-outline-none tw-transition">
+                                        <span class="tw-font-serif tw-inline-flex tw-rounded-sm">
+                                            <button class="tw-text-lg tw-bg-transparent tw-inline-flex tw-items-center tw-pl-3 tw-py-1 tw-border tw-border-transparent tw-leading-4 tw-bg-white hover:tw-text-dark focus:tw-outline-none tw-transition">
                                                 {{ user.name }}
 
-                                                <svg class="tw-ml-1 tw--mr-0.5 tw-h-4 tw-w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                                <svg class="tw-ml-1 tw--mr-0.5 tw-h-6 tw-w-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                                                     <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
                                                 </svg>
                                             </button>
@@ -59,22 +59,24 @@
 
                                     <template #content>
                                         <!-- Account Management -->
-                                        <div class="tw-block tw-px-2 tw-py-1 tw-text-xs tw-text-gray-400">
+                                        <div class="tw-block tw-px-2 tw-py-1 tw-font-serif tw-text-xl">
                                             Manage Account
                                         </div>
 
                                         <DropdownLink :to="'user/one'">
-                                            <div class="tw-flex tw-items-center">
-                                                <div class="tw-text-gray-500">Profile</div>
+                                            <div class="tw-flex tw-items-center tw-text-base">
+                                                <div>Profile</div>
                                             </div>
                                         </DropdownLink>
 
-                                        <div class="tw-h-px tw-w-full tw-bg-gradient-to-r tw-from-gray-300 tw-via-gray-300 tw-to-gray-300"></div>
+                                        <div class="tw-h-px tw-w-full tw-bg-gradient-to-r tw-from-transparent tw-via-accent tw-to-transparent"></div>
 
                                         <!-- Authentication -->
                                         <form @submit.prevent="logout">
                                             <DropdownLink as="button" @click.prevent="logout">
-                                                Log Out
+                                                <div class="tw-flex tw-items-center tw-text-base">
+                                                    <div>Log Out</div>
+                                                </div>
                                             </DropdownLink>
                                         </form>
                                     </template>
