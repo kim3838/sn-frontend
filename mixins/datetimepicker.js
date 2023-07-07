@@ -1,21 +1,22 @@
 export default {
     head: {
         script: [
-            {src: 'js/common/moment.min.js', defer: true},
-            {src: 'js/common/jquery.min.js', defer: true},
-            {src: 'js/datetimepicker/index.js', defer: true}
         ]
+    },
+
+    updated: function () {
+
     },
 
     mounted() {
         let that = this;
 
-        console.log("DateTimePickerMixin mounted");
-
-        setTimeout(() => {
+        that.$nextTick(function () {
             console.log("DateTimePickerMixin bootstrap");
-            this.bootstrapDateTimePickers(that);
-        }, 200);
+            that.bootstrapDateTimePickers(that);
+        })
+
+        console.log("DateTimePickerMixin mounted");
     },
 
     methods: {
