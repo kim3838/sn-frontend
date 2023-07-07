@@ -106,30 +106,28 @@
             </div>
 
             <div class="tw-grid tw-gap-2 tw-grid-cols-1 sm:tw-grid-cols-2 lg:tw-grid-cols-5 xl:tw-grid-cols-6 2xl:tw-grid-cols-8">
-                <div class="tw-block tw-border tw-border-neutral-200 tw-col-span-2">
+                <div class="tw-block tw-border tw-border-neutral-200">
                     <FormInputLabel value="Static Single Select" />
                     <SingleSelect
                         :prepend-icon="'mdi-book-information-variant'"
                         v-bind:select-model.sync="filters.location.selected"
                         :selection="filters.location.selection"/>
                 </div>
-                <div class="tw-block tw-border tw-border-neutral-200 tw-col-span-2">
+                <div class="tw-block tw-border tw-border-neutral-200">
                     <FormInputLabel value="Static Multi Select" />
                     <MultiSelect
                         :prepend-icon="'mdi-food-kosher'"
                         :filter="filters.category"/>
                 </div>
-            </div>
-
-            <div>
-                <p v-if="$fetchState.pending">Fetching mountains...</p>
-                <p v-else-if="$fetchState.error">An error occurred :(</p>
-                <div v-else>
-                    <h1>Nuxt Mountains</h1>
-                    <ul>
-                        <li v-for="mountain of mountains">{{ mountain.title }}</li>
-                    </ul>
-                    <button @click="$fetch">Refresh</button>
+                <div class="tw-block tw-border tw-border-neutral-200">
+                    <FormInputLabel value="Single Select Paginated" />
+                        <SingleSelectPaginated
+                            v-if="false"
+                            :identifier="'singleSelectPaginatedPrototype'"
+                            place-holder-class="'tw-text-xs'"
+                            :prepend-icon="'mdi-food-kosher'"
+                            :service-bag="filters.singleSelectPaginatedPrototype"
+                            :disabled="false"/>
                 </div>
             </div>
 
@@ -203,6 +201,7 @@
 
 <script>
 import DateTimePickerMixin from '~/mixins/datetimepicker';
+import PrototypeService from "@/services/PrototypeService";
 
 export default {
     name: "prototype",
@@ -215,34 +214,53 @@ export default {
 
     mounted(){
         let that = this;
-        let payload = {};
-        let itemsPerPage = (payload.itemsPerPage === undefined) ? '10' : payload.itemsPerPage;
-        let page = (payload.page === undefined) ? 1 : payload.page;
-        let filters = (payload.filters === undefined) ? '' : payload.filters;
 
-        let service = this.$axios.get('/api/selections/prototype?page=' + page + '&itemsPerPage=' + itemsPerPage , {
-            params: {
-                filters: filters
-            },
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        });
+        console.log(that.$_capitalize('Lodash Hello'));
 
-        service.then(function (response) {
+        // setTimeout(function(){
+        //     let servicePayload = PrototypeService.selection;
+        //
+        //     let payload = servicePayload();
+        //     let service = that.$axios[payload.method](payload.url, payload.config);
+        //
+        //     service.then(function (response) {
+        //         console.log({"PrototypeService Response" : response});
+        //     }).catch(function (error) {
+        //         console.error(error.response);
+        //     });
+        // }, 4000);
 
-        }).catch(function (error) {
-            console.error(error.response);
-        });
+        //this.service = PrototypeService.selection(this);
+
+        // this.service.then(function (response) {
+        //
+        // }).catch(function (error) {
+        //     console.error(error.response);
+        // });
     },
 
     data(){
         return{
-            service : null,
-            mountains: [],
             search: '',
             anotherSearch: '',
             filters: {
+                singleSelectPaginatedPrototype : {
+                    search: '',
+                    id: [],
+                    service: PrototypeService.selection,
+                    payload: () => {
+                        return {
+                            itemsPerPage: 10,
+                            page: 1,
+                            filters: {
+                                search: '',
+                                location_id : []
+                            }
+                        }
+                    },
+                    selected: null,
+                    selected_item: null
+                },
                 location : {
                     selection: [
                         {text : 'FOR APPROVAL', value: 0},
@@ -302,32 +320,9 @@ export default {
                         {text : 'POLYESTER', value: 6},
                     ],
                     selected: []
-                },
-                singlePaginatedCashier : {
-                    // search: '',
-                    // id: [],
-                    // service: CashierService.selection,
-                    // payload: () => {
-                    //     return {
-                    //         itemsPerPage: 10,
-                    //         page: 1,
-                    //         filters: {
-                    //             search: '',
-                    //             location_id : []
-                    //         }
-                    //     }
-                    // },
-                    // selected: null,
-                    // selected_item: null
-                },
+                }
             },
         }
-    },
-
-    async fetch() {
-        this.mountains = await fetch(
-            'https://api.nuxtjs.dev/mountains'
-        ).then(res => res.json())
     },
 
     watch:{
