@@ -30,7 +30,7 @@
                 </div>
 
                 <div class="tw-flex tw-items-center tw-justify-end tw-mt-4">
-                    <Button :height="'md'">Authenticate</Button>
+                    <Button :height="'md'"><span class="tw-font-semibold">Authenticate</span></Button>
                 </div>
             </form>
         </div>

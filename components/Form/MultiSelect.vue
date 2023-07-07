@@ -31,7 +31,7 @@
                 <div class="tw-w-full">
                     <FormInput
                         placeholder="Search"
-                        :height="'xs'"
+                        :height="'sm'"
                         type="text"
                         class="tw-block tw-w-full"
                         @input="searchFilterSelection(filter)"

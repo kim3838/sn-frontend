@@ -17,7 +17,7 @@
             focus:tw-border-light
             focus:tw-ring
             focus:tw-ring-light
-            disabled:tw-opacity-25
+            disabled:tw-opacity-60
             tw-transition
             tw-relative">
         <div

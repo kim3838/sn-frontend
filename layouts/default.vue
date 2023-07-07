@@ -19,6 +19,9 @@
                                         <NavLink :to="'/login'" :active="isRouteActive('login')">
                                             Login
                                         </NavLink>
+                                        <NavLink :to="'/'" :active="isRouteActive('index')">
+                                            Home
+                                        </NavLink>
                                     </div>
                                 </div>
                             </div>
@@ -40,6 +43,8 @@
 
 <script>
 export default {
+    name: "default",
+
     methods:{
         isRouteActive(route){
             return [this.$route.path, this.$route.name].indexOf(route) >= 0;
