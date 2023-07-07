@@ -4,8 +4,8 @@
     <input
         :disabled="disabled"
         v-on="on"
-        :class="[fontClass, heightClass, backgroundClass]"
-        class="tw-pl-1 tw-form-input tw-border-neutral-200 focus:tw-border-light focus:tw-ring focus:tw-ring-light focus:tw-ring-opacity-25 tw-rounded-sm tw-shadow-sm"
+        :class="[fontClass, heightClass, backgroundClass, ring ? 'focus:tw-ring-light focus:tw-ring-opacity-25' : 'focus:tw-ring-transparent']"
+        class="tw-pl-1 tw-form-input tw-border-neutral-200 tw-rounded-sm tw-shadow-sm focus:tw-border-lighter focus:tw-ring"
         :value="value"
         @input="$emit('input', $event.target.value)"
         ref="input">
@@ -22,6 +22,10 @@ export default {
         disabled: {
             type: Boolean,
             default: false
+        },
+        ring: {
+            type: Boolean,
+            default: true
         }
     },
 

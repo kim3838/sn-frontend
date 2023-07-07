@@ -59,7 +59,7 @@
                 </div>
                 <div class="tw-col-span-2 tw-block tw-border tw-border-neutral-200">
                     <FormInputLabel :height="'xl'" for="form_input_5" value="XL Label" />
-                    <FormInput :height="'xl'" class="tw-w-full" placeholder="Enter username" id="form_input_5" type="text" autofocus autocomplete="off" />
+                    <FormInput :ring="false" :height="'xl'" class="tw-w-full" placeholder="Enter username" id="form_input_5" type="text" autofocus autocomplete="off" />
                 </div>
             </div>
 
@@ -99,17 +99,13 @@
                         autocomplete="off"
                         :disabled="false" />
                 </div>
-
-                <div class="tw-block tw-border tw-border-neutral-200">
-
-                </div>
             </div>
 
             <div class="tw-grid tw-gap-2 tw-grid-cols-1 sm:tw-grid-cols-2 lg:tw-grid-cols-5 xl:tw-grid-cols-6 2xl:tw-grid-cols-8">
                 <div class="tw-block tw-border tw-border-neutral-200">
                     <FormInputLabel value="Static Single Select" />
                     <SingleSelect
-                        :prepend-icon="'mdi-book-information-variant'"
+                        :prepend-icon="'mdi-food-kosher'"
                         v-bind:select-model.sync="filters.location.selected"
                         :selection="filters.location.selection"/>
                 </div>
@@ -122,7 +118,6 @@
                 <div class="tw-block tw-border tw-border-neutral-200">
                     <FormInputLabel value="Single Select Paginated" />
                         <SingleSelectPaginated
-                            v-if="false"
                             :identifier="'singleSelectPaginatedPrototype'"
                             place-holder-class="'tw-text-xs'"
                             :prepend-icon="'mdi-food-kosher'"
