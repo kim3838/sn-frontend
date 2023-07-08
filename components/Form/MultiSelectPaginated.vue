@@ -5,19 +5,26 @@
         v-model="serviceBag.selected"
         :items="selection"
         @click="paginate(1, false, true);"
-        @change="selected()"
         dense
         :prepend-inner-icon="prependIcon"
         hide-details
+        multiple
         outlined
         :class="[backgroundClass]"
         class="paginated-multi-select tw-text-sm tw-rounded-sm tw-shadow-sm"
         :placeholder="selectionSummary">
         <template v-slot:selection="{ item, index , selected}">
-            <div v-if="index === 0" class="tw-truncate" :class="placeHolderClass" style="max-width: 90%;" v-text="selectionSummary"></div>
+            <div v-if="index === 0" class="tw-text-gray-600 tw-truncate" :class="placeHolderClass" style="max-width: 90%;" v-text="selectionSummary"></div>
         </template>
         <template v-slot:prepend-item>
             <div class="tw-flex tw-items-center tw-justify-start tw-px-3" style="min-height: 2.1rem !important;">
+                <div class="tw-flex tw-items-center">
+                    <v-icon
+                        @click="toggleFilterSelection(selection, serviceBag.selected)"
+                        :color="serviceBag.selected.length > 0 ? 'rgb(75 85 99)' : 'rgb(107 114 128)'">
+                        {{ filterSelectionIcon(selection, serviceBag.selected) }}
+                    </v-icon>
+                </div>
                 <div class="tw-w-full">
                     <FormInput
                         :ring="false"
@@ -30,26 +37,26 @@
                         autocomplete="off" />
                 </div>
             </div>
-            <div class="tw-h-px tw-w-full tw-bg-gradient-to-r tw-from-lighter tw-via-transparent tw-from-lighter"></div>
-            <div class="tw-relative"><v-progress-linear absolute v-if="loading" indeterminate color="#646464"></v-progress-linear></div>
+            <div class="tw-h-px tw-w-full tw-from-lighter tw-via-transparent tw-from-lighter"></div>
+            <div class="tw-relative"><v-progress-linear absolute v-if="loading" indeterminate color="rgb(156 163 175)"></v-progress-linear></div>
             <div class="tw-mx-3 tw-mt-[2px] tw-flex tw-items-center tw-justify-between">
-                <div class="tw-ml-1 tw-text-xs" v-text="pageInformation[0]"></div>
-                <div class="tw-ml-1 tw-text-xs tw-flex tw-justify-end" v-text="pageInformation[1]"></div>
+                <div class="tw-ml-1 tw-text-xs tw-text-gray-500" v-text="pageInformation[0]"></div>
+                <div class="tw-ml-1 tw-text-xs tw-text-gray-500 tw-flex tw-justify-end" v-text="pageInformation[1]"></div>
             </div>
             <div class="tw-mx-3 tw-flex tw-items-center tw-justify-between">
                 <div class="tw-flex tw-justify-start tw-space-x-[2px]">
                     <v-icon
                         class="tw-ml-1 tw-border tw-border-neutral-200"
                         dense
-                        :disabled="loading || $_isNull(serviceBag.selected)"
-                        @click="serviceBag.selected = null; serviceBag.selected_item = null;"
+                        :disabled="loading || serviceBag.selected.length < 1"
+                        @click="serviceBag.selected = []"
                         :color="'rgb(107 114 128)'">
                         mdi-playlist-remove
                     </v-icon>
                     <v-icon
                         class="tw-border tw-border-neutral-200"
                         dense
-                        :disabled="loading || $_isNull(serviceBag.selected)"
+                        :disabled="loading || serviceBag.selected.length < 1"
                         @click="paginate(1, true)"
                         :color="'rgb(107 114 128)'">
                         mdi-eye-check-outline
@@ -102,18 +109,7 @@
         <template v-slot:item="{ active, item, attrs, on }">
             <v-list-item dense v-on="on" v-bind="attrs" #default="{ active }">
                 <v-row dense no-gutters align="center">
-                    <svg v-if="active" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24">
-                        <path fill="currentColor" d="M12 20a8 8 0 0 1-8-8a8 8 0 0 1 8-8a8 8 0 0 1 8 8a8 8 0 0 1-8 8m0-18A10 10 0 0 0 2 12a10 10 0 0 0 10 10a10 10 0 0 0 10-10A10 10 0 0 0 12 2m0 5a5 5 0 0 0-5 5a5 5 0 0 0 5 5a5 5 0 0 0 5-5a5 5 0 0 0-5-5Z"/>
-                    </svg>
-                    <svg v-else xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24">
-                        <path fill="currentColor" d="M12 20a8 8 0 0 1-8-8a8 8 0 0 1 8-8a8 8 0 0 1 8 8a8 8 0 0 1-8 8m0-18A10 10 0 0 0 2 12a10 10 0 0 0 10 10a10 10 0 0 0 10-10A10 10 0 0 0 12 2Z"/>
-                    </svg>
-
-                    <div v-if="$_get(item, 'select_item_type', false) === 'ENUMS.SELECTION_TYPE.PREPAID_HOLDER'" class="tw-ml-1 tw-flex tw-items-center tw-text-sm">
-                        <span :class="[$_get(item, 'title_class', ''), '']" v-text="item.title"></span>
-                        <span class="tw-ml-1" v-text="$_get(item, 'sub_title', '')"></span>
-                    </div>
-                    <div v-else class="tw-ml-1 tw-text-sm" v-text="item.text"></div>
+                    <Checkbox :height="'sm'" :checked="active" :label="item.text" />
                 </v-row>
             </v-list-item>
         </template>
@@ -150,8 +146,7 @@ export default {
                             filters: {}
                         }
                     },
-                    selected: null,
-                    selected_item: null
+                    selected: []
                 }
             }
         },
@@ -166,7 +161,6 @@ export default {
     },
 
     mounted() {
-
     },
 
     data() {
@@ -188,7 +182,11 @@ export default {
 
     computed: {
         selectionSummary: function() {
-            return this.$_get(this.serviceBag.selected_item, 'text', 'None Selected');
+            let selectedCount = this.serviceBag.selected.length > 0
+                ? this.serviceBag.selected.length
+                : 'None';
+
+            return selectedCount + " Selected";
         },
 
         backgroundClass: function(){
@@ -225,10 +223,6 @@ export default {
     },
 
     methods: {
-        selected(){
-            this.serviceBag.selected_item = this.selection.filter(item => [this.serviceBag.selected].indexOf(item.value) >= 0)[0];
-        },
-
         focusOnInput(reference){
             let that = this;
 
@@ -255,7 +249,7 @@ export default {
             that.meta.pagination.current_page = page;
 
             if (selectedOnly) {
-                that.serviceBag.id = [that.serviceBag.selected];
+                that.serviceBag.id = that.serviceBag.selected;
             } else {
                 that.serviceBag.id = [];
             }
@@ -280,6 +274,38 @@ export default {
             }).catch(function (error) {
                 that.loading = false;
             });
+        },
+
+        selectedAllOfSelection(selection, selected) {
+            let selectionValue = selection.map(filter => filter.value);
+            let selectedFromCurrentSelection = selected.filter(value => selectionValue.indexOf(value) >= 0);
+
+            return (selectedFromCurrentSelection.length === selection.length) && selection.length > 0;
+        },
+
+        filterSelectionIcon(selection, selected){
+            if (this.selectedAllOfSelection(selection, selected)) return 'mdi-close-box'
+            if (selected.length > 0 && !this.selectedAllOfSelection(selection, selected)) return 'mdi-minus-box'
+            return 'mdi-text-box-check-outline'
+        },
+
+        toggleFilterSelection(selection, selected) {
+            let that = this;
+
+            that.$nextTick(function(){
+
+                if (that.selectedAllOfSelection(selection, selected)) {
+                    //Clear Selection From Selected
+                    let selectionValue = selection.map(filter => filter.value);
+
+                    that.serviceBag.selected = selected.filter(function(selectedItem){
+                        return selectionValue.indexOf(selectedItem) < 0;
+                    });
+                } else {
+                    //Merge Selection To Selected
+                    that.serviceBag.selected = that.$_uniq(selected.concat(selection.map(filter => filter.value)));
+                }
+            })
         },
 
         nextPage() {

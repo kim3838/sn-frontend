@@ -67,6 +67,7 @@
                 <div class="tw-block tw-border tw-border-neutral-200">
                     <FormInputLabel for="bootstrapDatePicker" value="Date" />
                     <FormInput
+                        :ring="false"
                         :height="'sm'"
                         class="tw-w-full"
                         type="text"
@@ -79,6 +80,7 @@
                 <div class="tw-block tw-border tw-border-neutral-200">
                     <FormInputLabel for="bootstrapDateTimePicker" value="DateTime" />
                     <FormInput
+                        :ring="false"
                         :height="'sm'"
                         class="tw-w-full"
                         type="text"
@@ -91,6 +93,7 @@
                 <div class="tw-block tw-border tw-border-neutral-200">
                     <FormInputLabel for="bootstrapMonthPicker" value="Month" />
                     <FormInput
+                        :ring="false"
                         :height="'sm'"
                         class="tw-w-full"
                         type="text"
@@ -122,6 +125,15 @@
                             place-holder-class="'tw-text-xs'"
                             :prepend-icon="'mdi-food-kosher'"
                             :service-bag="filters.singleSelectPaginatedPrototype"
+                            :disabled="false"/>
+                </div>
+                <div class="tw-block tw-border tw-border-neutral-200">
+                    <FormInputLabel value="Multi Select Paginated" />
+                        <MultiSelectPaginated
+                            :identifier="'multiSelectPaginatedPrototype'"
+                            place-holder-class="'tw-text-xs'"
+                            :prepend-icon="'mdi-food-kosher'"
+                            :service-bag="filters.multiSelectPaginatedPrototype"
                             :disabled="false"/>
                 </div>
             </div>
@@ -255,6 +267,22 @@ export default {
                     },
                     selected: null,
                     selected_item: null
+                },
+                multiSelectPaginatedPrototype : {
+                    search: '',
+                    id: [],
+                    service: PrototypeService.selection,
+                    payload: () => {
+                        return {
+                            itemsPerPage: 10,
+                            page: 1,
+                            filters: {
+                                search: this.filters.multiSelectPaginatedPrototype.search,
+                                location_id : []
+                            }
+                        }
+                    },
+                    selected: []
                 },
                 location : {
                     selection: [
