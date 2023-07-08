@@ -248,7 +248,7 @@ export default {
                             itemsPerPage: 10,
                             page: 1,
                             filters: {
-                                search: '',
+                                search: this.filters.singleSelectPaginatedPrototype.search,
                                 location_id : []
                             }
                         }
