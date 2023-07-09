@@ -34,6 +34,17 @@
                 </div>
             </form>
         </div>
+        <div>
+            <p v-if="$fetchState.pending">Fetching mountains...</p>
+            <p v-else-if="$fetchState.error">An error occurred :(</p>
+            <div v-else>
+                <h1>Nuxt Mountains</h1>
+                <ul>
+                    <li v-for="mountain of mountains">{{ mountain.title }}</li>
+                </ul>
+                <button @click="$fetch">Refresh</button>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -43,12 +54,55 @@ export default {
 
     auth: 'guest',
 
-    mounted(){
+    // mounted(){
+    //
+    //     console.log({'MOUNT BASE_URL' : this.$config.baseURL});
+    //     console.log({'MOUNT VERSION' : this.$config.version});
+    //     console.log({'MOUNT API_SECRET' : this.$config.apiSecret});
+    // },
 
+    async fetch() {
+        console.log({'ASYNC BASE_URL' : this.$config.baseURL});
+        console.log({'ASYNC VERSION' : this.$config.version});
+        console.log({'ASYNC API_SECRET' : this.$config.apiSecret});
+
+        this.mountains = await fetch(
+            'https://api.nuxtjs.dev/mountains'+ '?secret=' + this.$config.apiSecret
+        ).then(res => res.json())
+
+        // this.mountains = await this.$axios.$get(
+        //     'https://api.nuxtjs.dev/mountains'+ '?secret=' + this.$config.apiSecret
+        // );
     },
+    fetchOnServer: false,
+
+    // async asyncData(context) {
+    //     console.log({'ASYNC BASE_URL' : context.$config.baseURL});
+    //     console.log({'ASYNC VERSION' : context.$config.version});
+    //     console.log({'ASYNC API_SECRET' : context.$config.apiSecret});
+    //
+    //     const ip = await context.$axios.$get('http://icanhazip.com' + '?secret=' + context.$config.apiSecret)
+    //     return { ip }
+    // },
+
+    // async asyncData({app, store, route, params, query, env, isDev, isHMR, redirect, error, $config, $axios}) {
+    //     console.log({'ASYNC BASE_URL' : $config.baseURL});
+    //     console.log({'ASYNC VERSION' : $config.version});
+    //     console.log({'ASYNC API_SECRET' : $config.apiSecret});
+    //     console.log({'ASYNC params' : params});
+    //     const mountains = await $axios.$get('https://api.nuxtjs.dev/mountains?' + 'secret=' + $config.apiSecret)
+    //     return { mountains }
+    // },
+
+    // async fetch(context) {
+    //     this.mountains = await fetch(
+    //         'https://api.nuxtjs.dev/mountains?' + 'secret=' + context.$config.apiSecret
+    //     ).then(res => res.json())
+    // },
 
     data() {
         return {
+            mountains: [],
             form: {
                 email: 'berenice.jerde@example.com',
                 password: 'password',

@@ -141,16 +141,32 @@ export default {
     // Axios module configuration: https://go.nuxtjs.dev/config-axios
     axios: {
         // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
-        baseURL: 'http://localhost:8000',
+        baseURL: 'http://localhost:8000',// Base url fallback if no runtime config is provided
         credentials: true,
         https: false,
         headers: {
             common: {
-                'Accept': 'application/json, text/plain, */*'
+                'Accept': 'application/json, text/plain, */*',
+                'Authorization': ('Bearer ' + '0')
             }
         }
     },
 
     // Build Configuration: https://go.nuxtjs.dev/config-build
-    build: {}
+    build: {},
+
+    publicRuntimeConfig: {
+        baseURL: process.env.BASE_URL || 'http://localhost:8000',
+        version: process.env.VERSION,
+        axios: {
+            browserBaseURL: process.env.BROWSER_BASE_URL
+        }
+    },
+
+    privateRuntimeConfig: {
+        apiSecret: process.env.API_SECRET,
+        axios: {
+            baseURL: process.env.BASE_URL
+        }
+    }
 }

@@ -1,5 +1,8 @@
 <template>
     <div class="tw-max-w-full tw-m-2 tw-p-2 tw-border tw-border-light">
+
+        <p>Our Url is: {{ $config.baseURL}}</p>
+
         <div class="tw-space-y-2">
             <div class="tw-grid tw-gap-2 tw-grid-cols-1 sm:tw-grid-cols-2 lg:tw-grid-cols-5 xl:tw-grid-cols-6 2xl:tw-grid-cols-8">
                 <div class="tw-flex tw-items-start tw-justify-start tw-block tw-border tw-border-neutral-200">
@@ -162,10 +165,6 @@
                 </div>
             </div>
 
-            <div v-if="false">
-                <CardSample></CardSample>
-            </div>
-
             <div class="tw-grid tw-gap-2 tw-grid-cols-1 sm:tw-grid-cols-2 lg:tw-grid-cols-5 xl:tw-grid-cols-6 2xl:tw-grid-cols-8">
                 <div class="tw-block tw-border tw-border-neutral-200 tw-col-span-2">
                     <p class="tw-text-sm tw-leading-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus nec facilisis lacus. Phasellus convallis commodo lorem. Nam vitae dignissim elit.</p>
@@ -251,6 +250,7 @@ export default {
 
     data(){
         return{
+            mountains: [],
             statusGroup: {
                 selection: [
                     {text : 'FOR APPROVAL', value: 0},

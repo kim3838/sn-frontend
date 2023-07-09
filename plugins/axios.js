@@ -1,7 +1,8 @@
-export default function ({ $axios, redirect, store}) {
+export default function ({app, store, route, params, query, env, isDev, isHMR, redirect, error, $config, $axios}) {
 
     $axios.onRequest(config => {
         console.log({"Axios Request: " : config.url});
+        console.log({"Axios Header Config: " : config.headers.common});
     });
 
     $axios.onError(error => {
