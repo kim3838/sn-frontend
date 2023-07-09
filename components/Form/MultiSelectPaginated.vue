@@ -37,11 +37,11 @@
                         autocomplete="off" />
                 </div>
             </div>
-            <div class="tw-h-px tw-w-full tw-from-lighter tw-via-transparent tw-from-lighter"></div>
-            <div class="tw-relative"><v-progress-linear absolute v-if="loading" indeterminate color="rgb(156 163 175)"></v-progress-linear></div>
+            <div class="tw-h-px tw-w-full tw-bg-gradient-to-r tw-from-lighter tw-via-transparent tw-to-lighter"></div>
+            <div class="tw-relative"><v-progress-linear absolute v-if="loading" indeterminate color="#646464"></v-progress-linear></div>
             <div class="tw-mx-3 tw-mt-[2px] tw-flex tw-items-center tw-justify-between">
-                <div class="tw-ml-1 tw-text-xs tw-text-gray-500" v-text="pageInformation[0]"></div>
-                <div class="tw-ml-1 tw-text-xs tw-text-gray-500 tw-flex tw-justify-end" v-text="pageInformation[1]"></div>
+                <div class="tw-ml-1 tw-text-xs" v-text="pageInformation[0]"></div>
+                <div class="tw-ml-1 tw-text-xs tw-flex tw-justify-end" v-text="pageInformation[1]"></div>
             </div>
             <div class="tw-mx-3 tw-flex tw-items-center tw-justify-between">
                 <div class="tw-flex tw-justify-start tw-space-x-[2px]">
@@ -115,7 +115,7 @@
         </template>
         <template v-slot:no-data>
             <div class="tw-px-3">
-                <div class="tw-ml-1" v-text="noDataLabel"></div>
+                <div class="tw-ml-1 tw-text-sm" v-text="noDataLabel"></div>
             </div>
         </template>
     </v-select>

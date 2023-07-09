@@ -30,7 +30,7 @@
                         autocomplete="off" />
                 </div>
             </div>
-            <div class="tw-h-px tw-w-full tw-bg-gradient-to-r tw-from-lighter tw-via-transparent tw-from-lighter"></div>
+            <div class="tw-h-px tw-w-full tw-bg-gradient-to-r tw-from-lighter tw-via-transparent tw-to-lighter"></div>
             <div class="tw-relative"><v-progress-linear absolute v-if="loading" indeterminate color="#646464"></v-progress-linear></div>
             <div class="tw-mx-3 tw-mt-[2px] tw-flex tw-items-center tw-justify-between">
                 <div class="tw-ml-1 tw-text-xs" v-text="pageInformation[0]"></div>
@@ -113,13 +113,13 @@
                         <span :class="[$_get(item, 'title_class', ''), '']" v-text="item.title"></span>
                         <span class="tw-ml-1" v-text="$_get(item, 'sub_title', '')"></span>
                     </div>
-                    <div v-else class="tw-ml-1 tw-text-sm" v-text="item.text"></div>
+                    <div v-else class="tw-ml-[0.2rem] tw-text-sm" v-text="item.text"></div>
                 </v-row>
             </v-list-item>
         </template>
         <template v-slot:no-data>
             <div class="tw-px-3">
-                <div class="tw-ml-1" v-text="noDataLabel"></div>
+                <div class="tw-ml-1 tw-text-sm" v-text="noDataLabel"></div>
             </div>
         </template>
     </v-select>

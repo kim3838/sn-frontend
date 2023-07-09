@@ -25,18 +25,42 @@
             <div class="tw-grid tw-gap-2 tw-grid-cols-1 sm:tw-grid-cols-2 lg:tw-grid-cols-5 xl:tw-grid-cols-6 2xl:tw-grid-cols-8 tw-font-normal">
                 <div class="tw-flex tw-items-start tw-justify-start tw-block tw-border tw-border-neutral-200">
                     <label class="tw-flex tw-items-center">
-                        <Checkbox :height="'sm'" :label="'Remember me'" name="remember" />
+                        <Checkbox v-model="remember1" :height="'sm'" :label="'Remember me'" name="remember" />
                     </label>
                 </div>
                 <div class="tw-flex tw-items-start tw-justify-start tw-block tw-border tw-border-neutral-200">
                     <label class="tw-flex tw-items-center">
-                        <Checkbox :height="'md'" :label="'Remember me'" name="remember" />
+                        <Checkbox v-model="remember2" :height="'md'" :label="'Remember me'" name="remember" />
                     </label>
                 </div>
                 <div class="tw-col-span-2 tw-flex tw-items-start tw-justify-start tw-block tw-border tw-border-neutral-200">
                     <label class="tw-flex tw-items-center">
-                        <Checkbox :height="'lg'" :label="'Remember me'" name="remember" />
+                        <Checkbox v-model="remember3" :height="'lg'" :label="'Remember me'" name="remember" />
                     </label>
+                </div>
+            </div>
+
+            <div class="tw-grid tw-gap-2 tw-grid-cols-1 sm:tw-grid-cols-2 lg:tw-grid-cols-5 xl:tw-grid-cols-6 2xl:tw-grid-cols-8 tw-font-normal">
+                <div class="tw-col-span-2 tw-flex tw-items-start tw-justify-start tw-block tw-border tw-border-neutral-200">
+                    <div>
+                        <FormInputLabel value="Status Group" />
+                        <RadioGroup :selections="statusGroup.selection" :size="'sm'" v-bind:selected.sync="statusGroup.selected" />
+                        <p>Selected Option: {{ statusGroup.selected }}</p>
+                    </div>
+                </div>
+                <div class="tw-col-span-2 tw-flex tw-items-start tw-justify-start tw-block tw-border tw-border-neutral-200">
+                    <div>
+                        <FormInputLabel value="Transaction Group" />
+                        <RadioGroup :selections="transactionGroup.selection" :size="'md'" v-bind:selected.sync="transactionGroup.selected" />
+                        <p>Selected Option: {{ transactionGroup.selected }}</p>
+                    </div>
+                </div>
+                <div class="tw-col-span-2 tw-flex tw-items-start tw-justify-start tw-block tw-border tw-border-neutral-200">
+                    <div>
+                        <FormInputLabel value="Category Group" />
+                        <RadioGroup :selections="categoryGroup.selection" :size="'lg'" v-bind:selected.sync="categoryGroup.selected" />
+                        <p>Selected Option: {{ categoryGroup.selected }}</p>
+                    </div>
                 </div>
             </div>
 
@@ -109,8 +133,8 @@
                     <FormInputLabel value="Static Single Select" />
                     <SingleSelect
                         :prepend-icon="'mdi-food-kosher'"
-                        v-bind:select-model.sync="filters.location.selected"
-                        :selection="filters.location.selection"/>
+                        v-bind:select-model.sync="filters.status.selected"
+                        :selection="filters.status.selection"/>
                 </div>
                 <div class="tw-block tw-border tw-border-neutral-200">
                     <FormInputLabel value="Static Multi Select" />
@@ -227,8 +251,43 @@ export default {
 
     data(){
         return{
+            statusGroup: {
+                selection: [
+                    {text : 'FOR APPROVAL', value: 0},
+                    {text : 'APPROVED', value: 1},
+                    {text : 'PROCESSING', value: 2},
+                    {text : 'REJECTED', value: 3},
+                    {text : 'COMPLETE', value: 4},
+                ],
+                selected: 3
+            },
+            transactionGroup: {
+                selection: [
+                    {text : 'CASH', value: 0},
+                    {text : 'PRE PAID', value: 1},
+                    {text : 'POST PAID', value: 2},
+                    {text : 'CARD', value: 3},
+                    {text : 'DEBIT', value: 4},
+                ],
+                selected: 3
+            },
+            categoryGroup: {
+                selection: [
+                    {text : 'CHARMS', value: 0},
+                    {text : 'BRACELETS', value: 1},
+                    {text : 'BROOCHES AND PIN', value: 2},
+                    {text : 'NECKLACES', value: 3},
+                    {text : 'EARRINGS', value: 4},
+                    {text : 'RINGS', value: 5},
+                    {text : 'POLYESTER', value: 6},
+                ],
+                selected: 3
+            },
             search: '',
             anotherSearch: '',
+            remember1: null,
+            remember2: null,
+            remember3: null,
             filters: {
                 singleSelectPaginatedPrototype : {
                     search: '',
@@ -263,7 +322,7 @@ export default {
                     },
                     selected: []
                 },
-                location : {
+                status : {
                     selection: [
                         {text : 'FOR APPROVAL', value: 0},
                         {text : 'APPROVED', value: 1},
@@ -271,7 +330,7 @@ export default {
                         {text : 'REJECTED', value: 3},
                         {text : 'COMPLETE', value: 4},
                     ],
-                    selected: null
+                    selected: 3
                 },
                 transactions: {
                     selected: null,
@@ -282,24 +341,6 @@ export default {
                         {text : 'REJECTED', value: 3},
                         {text : 'COMPLETE', value: 4},
                     ]
-                },
-                status : {
-                    search: '',
-                    data: [
-                        {text : 'FOR APPROVAL', value: 0},
-                        {text : 'APPROVED', value: 1},
-                        {text : 'PROCESSING', value: 2},
-                        {text : 'REJECTED', value: 3},
-                        {text : 'COMPLETE', value: 4},
-                    ],
-                    selection: [
-                        {text : 'FOR APPROVAL', value: 0},
-                        {text : 'APPROVED', value: 1},
-                        {text : 'PROCESSING', value: 2},
-                        {text : 'REJECTED', value: 3},
-                        {text : 'COMPLETE', value: 4},
-                    ],
-                    selected: []
                 },
                 category : {
                     search: '',
