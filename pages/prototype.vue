@@ -223,27 +223,6 @@ export default {
         let that = this;
 
         console.log(that.$_capitalize('Lodash Hello'));
-
-        // setTimeout(function(){
-        //     let servicePayload = PrototypeService.selection;
-        //
-        //     let payload = servicePayload();
-        //     let service = that.$axios[payload.method](payload.url, payload.config);
-        //
-        //     service.then(function (response) {
-        //         console.log({"PrototypeService Response" : response});
-        //     }).catch(function (error) {
-        //         console.error(error.response);
-        //     });
-        // }, 4000);
-
-        //this.service = PrototypeService.selection(this);
-
-        // this.service.then(function (response) {
-        //
-        // }).catch(function (error) {
-        //     console.error(error.response);
-        // });
     },
 
     data(){
