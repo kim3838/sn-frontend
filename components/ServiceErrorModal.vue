@@ -1,17 +1,17 @@
 <template>
     <ConfirmationModal
         :closeable="false"
-        :max-width="'sm'"
-        :show="$store.state.service.error"
+        :max-width="'lg'"
+        :show="$store.state.service.error.prompt"
         @close="$store.commit('resetServiceError')">
         <template #title>
-            Something went wrong
+            <span v-text="$store.state.service.error.title"></span>
         </template>
 
         <template #content>
-            <div v-if="$store.state.service.error">
-                <div v-text="$store.state.service.error.code"></div>
-                <div v-text="$store.state.service.error.message"></div>
+            <div v-if="$store.state.service.error.payload">
+                <code v-text="$store.state.service.error.payload.data.code"></code>
+                <div v-text="$store.state.service.error.payload.data.message"></div>
             </div>
         </template>
 

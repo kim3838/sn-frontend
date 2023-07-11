@@ -13,7 +13,7 @@
                 </div>
 
                 <div class="tw-mt-3 tw-text-center sm:tw-mt-0 sm:tw-ml-2 sm:tw-text-left">
-                    <h3 class="tw-text-xl tw-font-semibold">
+                    <h3 class="tw-text-xl">
                         <slot name="title"></slot>
                     </h3>
 

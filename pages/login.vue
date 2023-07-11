@@ -7,8 +7,8 @@
             </div>
         </div>
 
-        <div v-if="true" class="tw-flex tw-h-full tw-items-center tw-border-gray-200 tw-border">
-            <form @submit.prevent="login" class="tw-w-72 tw-border tw-border-gray-200">
+        <div v-if="true" class="tw-flex tw-h-full tw-items-center tw-border-neutral-200 tw-border">
+            <form @submit.prevent="login" class="tw-w-72">
                 <div class="tw-block">
                     <FormInputLabel :height="'md'" for="email" value="Email" />
                     <FormInput :height="'md'" id="email" type="email" class="tw-w-full" v-model="form.email" autofocus autocomplete="off" />
@@ -25,8 +25,8 @@
                     </label>
                 </div>
 
-                <div v-if="error" class="tw-block tw-mt-4 tw-text-sm tw-text-red-600">
-                    <span>{{ error.data.message }}</span>
+                <div v-if="$store.state.service.error.payload && !$store.state.service.error.prompt" class="tw-block tw-mt-4 tw-text-sm tw-text-red-600">
+                    <span>{{ $store.state.service.error.payload.data.message }}</span>
                 </div>
 
                 <div class="tw-flex tw-items-center tw-justify-end tw-mt-4">
@@ -104,35 +104,37 @@ export default {
         return {
             mountains: [],
             form: {
-                email: 'berenice.jerde@example.com',
+                email: 'berenice.jerde@example.com1',
                 password: 'password',
                 remember: false
-            },
-
-            error: null
+            }
         }
     },
 
     methods:{
-        async login() {
+        login() {
 
             let that = this;
 
-            this.error = null;
+            that.$store.commit('resetServiceError');
 
-            try {
-                await this.$auth.loginWith('cookie', {
-                    data: {
-                        ...this.form
-                    }
-                }).then(
-                    () => console.log({"loggedIn" : this.$auth.loggedIn})
-                );
+            this.$auth.loginWith('cookie', {
+                data: {...that.form}
+            }).catch(error => {
+                console.log({"Login.vue error:" : error.response});
+            });
 
-                await that.$router.push('/');
-            } catch (error) {
-                this.error = error.response;
-            }
+            // try {
+            //     await this.$auth.loginWith('cookie', {
+            //         data: {...this.form}
+            //     }).then(
+            //         () => console.log({"loggedIn" : this.$auth.loggedIn})
+            //     );
+
+            //     await that.$router.push('/');
+            // } catch (error) {
+            //     this.error = error.response;
+            // }
         },
     },
 

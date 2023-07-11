@@ -5,7 +5,7 @@
             :value="value"
             v-model="proxyChecked"
             :class="[heightClass]"
-            class="tw-form-checkbox tw-text-darker tw-shadow-sm tw-border-gray-400 tw-focus:ring focus:tw-ring-light focus:tw-ring-opacity-50">
+            class="tw-form-checkbox tw-text-darker tw-border-accent focus:tw-ring-transparent focus:tw-border-lighter focus:tw-ring">
         <span :class="[fontClass]" class="tw-ml-1">{{label}}</span>
     </span>
 </template>

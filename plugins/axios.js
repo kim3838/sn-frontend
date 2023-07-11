@@ -2,17 +2,22 @@ export default function ({app, store, route, params, query, env, isDev, isHMR, r
 
     $axios.onRequest(config => {
         console.log({"Axios Request: " : config.url});
+
         console.log({"Axios Header Config: " : config.headers.common});
     });
 
     $axios.onError(error => {
         const code = parseInt(error.response && error.response.status);
 
-        console.log({"Axios Error: " : error.response.data.message});
+        console.log({"axios.js Auth : " : store.state.auth});
 
-        store.commit('setServiceError', error.response);
+        console.log({"Axios Error : " : code + ": " + error.response.data.message});
 
-        return Promise.resolve(false);
+        store.commit('setServiceError', {
+            prompt: code !== 401,
+            title: 'Something Went Wrong',
+            payload: error.response
+        });
     });
 
 }

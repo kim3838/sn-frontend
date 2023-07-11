@@ -1,7 +1,7 @@
 <template>
     <div>
         <v-app>
-            <div class="tw-bg-gradient-to-br tw-bg-transparent tw-from-white tw-via-transparent tw-to-light/50">
+            <div class="tw-bg-gradient-to-br tw-bg-transparent tw-from-white tw-via-neutral-100 tw-to-transparent">
                 <div class="tw-min-h-screen wrapper tw-overflow-x-hidden tw-overflow-y-hidden">
 
                     <nav

@@ -1,21 +1,29 @@
 
 export const state = () => ({
     service: {
-        error: null
+        error: {
+            prompt: false,
+            title: null,
+            payload: null
+        }
     }
 });
 
 export const getters = {
     getServiceError(state) {
-        return state.error
+        return state.service.error;
     }
 }
 
 export const mutations = {
-    setServiceError(state, payload){
-        state.service.error = payload.data;
+    setServiceError(state, serviceError){
+        state.service.error = serviceError;
     },
     resetServiceError(state){
-        state.service.error = null;
+        state.service.error = {
+            prompt: false,
+            title: null,
+            payload: null
+        };
     },
 }

@@ -1,4 +1,5 @@
-export default function({ $auth }) {
+export default function({ store, $auth }) {
+
     $auth.onError((error, name, endpoint) => {
 
         console.log({"Auth Error: " : error.response});
