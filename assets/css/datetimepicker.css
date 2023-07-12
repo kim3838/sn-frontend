@@ -2,12 +2,13 @@
     display: none;
 }
 
+/*Datetime picker border Theme [lighter] color*/
 .daterangepicker {
     position: absolute;
     font-family: inherit;
     /*color: #374151;*/
     background-color: #fff;
-    border: 1px solid #ddd;
+    border: 1px solid #b4b4b4;
     width: 278px;
     max-width: none;
     padding: 0;
@@ -27,11 +28,12 @@
     content: '';
 }
 
+/*Datetime picker arrow background Theme [lighter] color*/
 .daterangepicker:before {
     top: -7px;
     border-right: 7px solid transparent;
     border-left: 7px solid transparent;
-    border-bottom: 7px solid #ccc;
+    border-bottom: 7px solid #b4b4b4;
 }
 
 .daterangepicker:after {
@@ -128,7 +130,7 @@
     border: none;
 }
 
-/*Datetime picker arrow background accent color*/
+/*Datetime picker arrow background Theme [accent] color*/
 .daterangepicker .calendar-table .next span, .daterangepicker .calendar-table .prev span {
     color: #fff;
     /*border: solid #374151;*/
@@ -229,7 +231,7 @@
     border-radius: 4px;
 }
 
-/*Datetime picker active background accent color*/
+/*Datetime picker active background Theme [accent] color*/
 .daterangepicker td.active, .daterangepicker td.active:hover {
     /*background-color: #357ebd;*/
     background-color: #646464;
