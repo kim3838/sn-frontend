@@ -1,48 +1,50 @@
 <template>
-    <div class="container">
-        <div class="moody-card tw-p-6">
-            <div class="moody-card-frame"></div>
-            <div class="tw-relative">
-                <TextSample></TextSample>
+    <div class="tw-m-2 tw-p-2 tw-border tw-border-light">
+        <div class="tw-flex tw-items-center tw-justify-center">
+            <div class="moody-card tw-p-6">
+                <div class="moody-card-frame"></div>
+                <div class="tw-relative">
+                    <TextSample></TextSample>
+                </div>
             </div>
-        </div>
 
-        <div v-if="true" class="tw-flex tw-h-full tw-items-center tw-border-neutral-200 tw-border">
-            <form @submit.prevent="login" class="tw-w-72">
-                <div class="tw-block">
-                    <FormInputLabel :height="'md'" for="email" value="Email" />
-                    <FormInput :height="'md'" id="email" type="email" class="tw-w-full" v-model="form.email" autofocus autocomplete="off" />
-                </div>
+            <div class="tw-flex tw-h-full tw-items-center tw-border-neutral-200 tw-border">
+                <form @submit.prevent="login" class="tw-w-72">
+                    <div class="tw-block">
+                        <FormInputLabel :height="'md'" for="email" value="Email" />
+                        <FormInput :height="'md'" id="email" type="email" class="tw-w-full" v-model="form.email" autofocus autocomplete="off" />
+                    </div>
 
-                <div class="tw-block tw-mt-4">
-                    <FormInputLabel :height="'md'" for="password" value="Password" />
-                    <FormInput :height="'md'" id="password" type="password" class="tw-w-full" v-model="form.password" required autocomplete="current-password" />
-                </div>
+                    <div class="tw-block tw-mt-4">
+                        <FormInputLabel :height="'md'" for="password" value="Password" />
+                        <FormInput :height="'md'" id="password" type="password" class="tw-w-full" v-model="form.password" required autocomplete="current-password" />
+                    </div>
 
-                <div class="tw-block tw-mt-4">
-                    <label class="tw-flex tw-items-center">
-                        <Checkbox name="remember" v-model="form.remember" :height="'md'" :label="'Remember me'" />
-                    </label>
-                </div>
+                    <div class="tw-block tw-mt-4">
+                        <label class="tw-flex tw-items-center">
+                            <Checkbox name="remember" v-model="form.remember" :height="'md'" :label="'Remember me'" />
+                        </label>
+                    </div>
 
-                <div v-if="$store.state.service.error.payload && !$store.state.service.error.prompt" class="tw-block tw-mt-4 tw-text-sm tw-text-red-600">
-                    <span>{{ $store.state.service.error.payload.data.message }}</span>
-                </div>
+                    <div v-if="$store.state.service.error.payload && !$store.state.service.error.prompt" class="tw-block tw-mt-4 tw-text-sm tw-text-red-600">
+                        <span>{{ $store.state.service.error.payload.data.message }}</span>
+                    </div>
 
-                <div class="tw-flex tw-items-center tw-justify-end tw-mt-4">
-                    <Button :height="'md'"><span class="tw-font-semibold">Authenticate</span></Button>
+                    <div class="tw-flex tw-items-center tw-justify-end tw-mt-4">
+                        <Button :height="'md'"><span class="tw-font-semibold">Authenticate</span></Button>
+                    </div>
+                </form>
+            </div>
+            <div>
+                <p v-if="$fetchState.pending">Fetching mountains...</p>
+                <p v-else-if="$fetchState.error">An error occurred :(</p>
+                <div v-else>
+                    <h1>Nuxt Mountains</h1>
+                    <ul>
+                        <li v-for="mountain of mountains">{{ mountain.title }}</li>
+                    </ul>
+                    <button @click="$fetch">Refresh</button>
                 </div>
-            </form>
-        </div>
-        <div>
-            <p v-if="$fetchState.pending">Fetching mountains...</p>
-            <p v-else-if="$fetchState.error">An error occurred :(</p>
-            <div v-else>
-                <h1>Nuxt Mountains</h1>
-                <ul>
-                    <li v-for="mountain of mountains">{{ mountain.title }}</li>
-                </ul>
-                <button @click="$fetch">Refresh</button>
             </div>
         </div>
     </div>
@@ -62,13 +64,25 @@ export default {
     // },
 
     async fetch() {
+        let that = this;
+
         console.log({'ASYNC BASE_URL' : this.$config.baseURL});
         console.log({'ASYNC VERSION' : this.$config.version});
         console.log({'ASYNC API_SECRET' : this.$config.apiSecret});
 
-        this.mountains = await fetch(
+        let service = fetch(
             'https://api.nuxtjs.dev/mountains'+ '?secret=' + this.$config.apiSecret
-        ).then(res => res.json())
+        );
+
+        await new Promise((resolve, reject) => {
+            setTimeout(()=>{
+                service.then(res => resolve(res.json()));
+            }, 20000);
+        }).then(resolved => {
+            this.mountains = resolved;
+        });
+
+        await console.log("Resolved");
 
         // this.mountains = await this.$axios.$get(
         //     'https://api.nuxtjs.dev/mountains'+ '?secret=' + this.$config.apiSecret

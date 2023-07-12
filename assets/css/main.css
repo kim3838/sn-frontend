@@ -20,6 +20,17 @@ body{
     text-rendering: optimizeLegibility;
 }
 
+/*.layer:before{*/
+/*    position: absolute;*/
+/*    content: "";*/
+/*    top: 0;*/
+/*    left: 0;*/
+/*    right: 0;*/
+/*    bottom: 0;*/
+/*    background: rgb(186, 198, 204);*/
+/*    background: radial-gradient(circle, rgba(141, 155, 164, 0) 0%, rgba(117, 160, 192, 0) 50%, rgba(120, 151, 173, 0.7) 100%);*/
+/*}*/
+
 .container{
     padding: 0.5rem !important;
 }
@@ -68,11 +79,11 @@ body{
     background-color: white;
 }
 
-.content-wrapper{
-    min-height:calc(100vh - calc(3.5rem + 1px) - calc(3.5rem + 1px));
-    height: 100%;
-    box-sizing: border-box;
-}
+/*.content-wrapper{*/
+/*    min-height:calc(100vh - calc(3.5rem + 1px) - calc(3.5rem + 1px));*/
+/*    height: 100%;*/
+/*    box-sizing: border-box;*/
+/*}*/
 
 .v-enter,
 .v-leave-to,

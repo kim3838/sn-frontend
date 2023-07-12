@@ -1,5 +1,5 @@
 <template>
-    <div class="tw-max-w-full tw-m-2 tw-p-2 tw-border tw-border-light">
+    <div class="tw-m-2 tw-p-2 tw-border tw-border-light">
 
         <p>Url: {{ $config.baseURL}}</p>
 

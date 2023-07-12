@@ -9,7 +9,7 @@
                 leave-class="tw-opacity-100"
                 leave-to-class="tw-opacity-0">
                 <div v-show="show" class="tw-fixed tw-inset-0 tw-transform tw-transition-all" @click="close">
-                    <div class="tw-absolute tw-inset-0 tw-bg-gray-500 tw-opacity-75"></div>
+                    <div class="tw-absolute tw-inset-0 tw-bg-darker tw-opacity-75"></div>
                 </div>
             </transition>
 
@@ -56,31 +56,8 @@
             }
         },
 
-        // watch: {
-        //     show: {
-        //         immediate: true,
-        //         handler: (show) => {
-        //             if (show) {
-        //                 document.body.style.overflow = 'hidden'
-        //             } else {
-        //                 document.body.style.overflow = null
-        //             }
-        //         }
-        //     }
-        // },
-
         created() {
-            // const closeOnEscape = (e) => {
-            //     if (e.key === 'Escape' && this.show) {
-            //         this.close()
-            //     }
-            // }
-            //
-            // document.addEventListener('keydown', closeOnEscape)
-            //
-            // this.$once('hook:destroyed', () => {
-            //     document.removeEventListener('keydown', closeOnEscape)
-            // })
+
         },
 
         computed: {

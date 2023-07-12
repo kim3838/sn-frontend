@@ -1,41 +1,36 @@
 <template>
     <div>
-        <v-app>
-            <div class="tw-bg-gradient-to-br tw-bg-transparent tw-from-white tw-via-neutral-100 tw-to-transparent">
-                <div class="tw-min-h-screen wrapper tw-overflow-x-hidden tw-overflow-y-hidden">
-
-                    <nav
-                        class="tw-border-b tw-border-neutral-200"
-                        :class="{'lg:tw-ml-sidebar': false}">
-                        <!-- Primary Navigation Menu -->
-                        <div class="tw-max-w-full tw-bg-white tw-mx-auto tw-px-2">
-                            <div class="tw-flex tw-justify-center tw-h-10">
-                                <div class="tw-relative tw-flex">
-                                    <!-- Navigation Links -->
-                                    <div class="tw-hidden tw-space-x-4 lg:tw--my-px lg:tw-ml-10 lg:tw-flex">
-                                        <NavLink :to="'/prototype'" :active="isRouteActive('prototype')">
-                                            Prototype
-                                        </NavLink>
-                                        <NavLink :to="'/login'" :active="isRouteActive('login')">
-                                            Login
-                                        </NavLink>
-                                        <NavLink :to="'/'" :active="isRouteActive('index')">
-                                            Home
-                                        </NavLink>
-                                    </div>
-                                </div>
-                            </div>
+        <nav
+            class="tw-border-b tw-border-neutral-200"
+            :class="{'lg:tw-ml-sidebar': false}">
+            <!-- Primary Navigation Menu -->
+            <div class="tw-max-w-full tw-bg-white tw-mx-auto tw-px-2">
+                <div class="tw-flex tw-justify-center tw-h-10">
+                    <div class="tw-relative tw-flex">
+                        <!-- Navigation Links -->
+                        <div class="tw-hidden tw-space-x-4 lg:tw--my-px lg:tw-ml-10 lg:tw-flex">
+                            <NavLink :to="'/prototype'" :active="isRouteActive('prototype')">
+                                Prototype
+                            </NavLink>
+                            <NavLink :to="'/login'" :active="isRouteActive('login')">
+                                Login
+                            </NavLink>
+                            <NavLink :to="'/'" :active="isRouteActive('index')">
+                                Home
+                            </NavLink>
                         </div>
-                    </nav>
-
-                    <div class="content-wrapper tw-transform tw-ease-in-out tw-transition-all tw-duration-200 tw-z-30" :class="{'lg:tw-ml-sidebar': false}">
-                        <main>
-                            <Nuxt/>
-                        </main>
                     </div>
                 </div>
             </div>
-        </v-app>
+        </nav>
+
+        <div class="tw-transform tw-ease-in-out tw-transition-all tw-duration-200 tw-z-30" :class="{'lg:tw-ml-sidebar': false}">
+            <main class="tw-relative">
+                <v-app>
+                    <Nuxt/>
+                </v-app>
+            </main>
+        </div>
 
         <ServiceErrorModal></ServiceErrorModal>
     </div>
@@ -49,6 +44,12 @@ export default {
         isRouteActive(route){
             return [this.$route.path, this.$route.name].indexOf(route) >= 0;
         },
+    },
+
+    data() {
+        return {
+
+        }
     }
 }
 </script>
