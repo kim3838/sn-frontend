@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="tw-relative">
         <nav
             class="tw-border-b tw-border-neutral-200"
             :class="{'lg:tw-ml-sidebar': false}">
@@ -24,7 +24,7 @@
             </div>
         </nav>
 
-        <div class="tw-transform tw-ease-in-out tw-transition-all tw-duration-200 tw-z-30" :class="{'lg:tw-ml-sidebar': false}">
+        <div class="tw-transform tw-ease-in-out tw-transition-all tw-duration-200 tw-z-20" :class="{'lg:tw-ml-sidebar': false}">
             <main class="tw-relative">
                 <v-app>
                     <Nuxt/>
@@ -46,6 +46,13 @@ export default {
         },
     },
 
+    mounted() {
+        this.$nextTick(() => {
+            this.$nuxt.$loading.start()
+            //setTimeout(() => this.$nuxt.$loading.finish(), 4700)
+        })
+    },
+
     data() {
         return {
 
@@ -56,7 +63,13 @@ export default {
 
 <style>
 
-/* The Close Button */
+.loading{
+    position: absolute;
+    min-height:calc(100vh);
+    width: 100%;
+}
+
+
 .close {
     color: #aaaaaa;
     font-size: 38px;

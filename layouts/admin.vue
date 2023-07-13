@@ -96,7 +96,7 @@
             </div>
         </nav>
 
-        <div class="tw-transform tw-ease-in-out tw-transition-all tw-duration-200 tw-z-30" :class="{'lg:tw-ml-sidebar': false}">
+        <div class="tw-transform tw-ease-in-out tw-transition-all tw-duration-200 tw-z-20" :class="{'lg:tw-ml-sidebar': false}">
             <main class="tw-relative">
                 <v-app>
                     <Nuxt/>

@@ -37,14 +37,11 @@ export default {
             {src: 'js/datetimepicker/index.js'}
         ],
         bodyAttrs: {
-            class: 'tw-text-accent tw-font-sans'
+            class: 'tw-text-accent tw-font-sans tw-h-full tw-w-full'
         }
     },
 
-    loading: {
-        color: 'blue',
-        height: '5px'
-    },
+    loading: '~/components/WarpingCube.vue',
 
     // Global CSS: https://go.nuxtjs.dev/config-css
     css: [
