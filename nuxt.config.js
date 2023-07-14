@@ -47,6 +47,7 @@ export default {
     css: [
         '@/assets/css/main.css',
         '@/assets/css/tailwind.css',
+        '@/assets/css/fonts.css',
         '@/assets/css/datetimepicker.css'
     ],
 

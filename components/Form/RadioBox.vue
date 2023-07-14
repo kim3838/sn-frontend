@@ -1,5 +1,5 @@
 <template>
-    <label :for="label">
+    <label :for="labelId">
         <svg
             v-if="selected == value"
             :class="[heightClass]"
@@ -17,7 +17,7 @@
         <input
             type="radio"
             :value="value"
-            :id="label"
+            :id="labelId"
             @change="valueUpdated"
             name="radio-input"/>
         <span :class="[fontClass]" class="tw-ml-[0.2rem]">{{label}}</span>
@@ -47,6 +47,10 @@ export default {
     },
 
     computed: {
+        labelId(){
+            return this.value + '-' +this.label;
+        },
+
         heightClass() {
             return {
                 [null]: 'tw-h-3.5 tw-w-3.5',
@@ -67,7 +71,7 @@ export default {
                 // 1rem
                 'md': 'tw-text-base',
                 // 1.25rem
-                'lg': 'tw-text-xl'
+                'lg': 'tw-text-xl tw-font-semibold'
             }[this.height]
         },
     },

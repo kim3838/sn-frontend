@@ -81,63 +81,101 @@
 
             <div class="tw-grid tw-gap-2 tw-grid-cols-1 sm:tw-grid-cols-2 lg:tw-grid-cols-5 xl:tw-grid-cols-6 2xl:tw-grid-cols-8">
                 <div class="tw-flex tw-items-start tw-justify-start tw-block tw-border tw-border-neutral-200">
-                    <Button :height="'xs'"><span class="tw-font-medium">Button Label</span></Button>
+                    <Button :height="'xs'"><span class="tw-font-semibold">XS Button</span></Button>
                 </div>
                 <div class="tw-flex tw-items-start tw-justify-start tw-block tw-border tw-border-neutral-200">
-                    <Button :height="'sm'"><span class="tw-font-semibold">Authenticate</span></Button>
+                    <Button :height="'sm'"><span class="tw-font-semibold">SM Authenticate</span></Button>
                 </div>
                 <div class="tw-flex tw-items-start tw-justify-start tw-block tw-border tw-border-neutral-200">
-                    <Button :height="'md'"><span class="tw-font-semibold">Add to cart</span></Button>
+                    <Button :height="'md'"><span class="tw-font-semibold">MD Authenticate</span></Button>
                 </div>
                 <div class="tw-flex tw-items-start tw-justify-start tw-block tw-border tw-border-neutral-200">
-                    <Button :disabled="true"><span class="tw-font-semibold">Disabled</span></Button>
+                    <Button :disabled="true"><span class="tw-font-semibold">DEFAULT Disabled</span></Button>
                 </div>
                 <div class="tw-flex tw-items-start tw-justify-start tw-block tw-w-full tw-border tw-border-neutral-200">
-                    <Button :height="'lg'"><span class="tw-font-semibold">SKIP</span></Button>
+                    <Button :height="'lg'"><span class="tw-font-bold">LG SKIP</span></Button>
                 </div>
                 <div class="tw-col-span-2 tw-flex tw-items-start tw-justify-start tw-block tw-w-full tw-border tw-border-neutral-200">
-                    <Button :height="'xl'"><span class="tw-font-semibold">Authenticate</span></Button>
+                    <Button :height="'xl'"><span class="tw-font-bold">XL Authenticate</span></Button>
                 </div>
             </div>
 
-            <div class="tw-grid tw-gap-2 tw-grid-cols-1 sm:tw-grid-cols-2 lg:tw-grid-cols-5 xl:tw-grid-cols-6 2xl:tw-grid-cols-8 tw-font-normal">
-                <div class="tw-flex tw-items-start tw-justify-start tw-block tw-border tw-border-neutral-200">
+            <div class="tw-grid tw-gap-2 tw-grid-cols-1 sm:tw-grid-cols-2 lg:tw-grid-cols-5 xl:tw-grid-cols-6 2xl:tw-grid-cols-8">
+                <div class="tw-border tw-border-neutral-200">
                     <label class="tw-flex tw-items-center">
-                        <Checkbox v-model="remember1" :height="'sm'" :label="'Remember me'" name="remember" />
+                        <Checkbox v-model="remember1" :height="'sm'" :label="'SM Checkbox'" name="remember" />
                     </label>
                 </div>
-                <div class="tw-flex tw-items-start tw-justify-start tw-block tw-border tw-border-neutral-200">
-                    <label class="tw-flex tw-items-center">
-                        <Checkbox v-model="remember2" :height="'md'" :label="'Remember me'" name="remember" />
-                    </label>
+                <div class="tw-border tw-border-neutral-200">
+                    <div>
+                        <label class="tw-flex tw-items-center">
+                            <Checkbox v-model="remember2" :height="'md'" :label="'MD Checkbox'" name="remember" />
+                        </label>
+                    </div>
                 </div>
-                <div class="tw-col-span-2 tw-flex tw-items-start tw-justify-start tw-block tw-border tw-border-neutral-200">
-                    <label class="tw-flex tw-items-center">
-                        <Checkbox v-model="remember3" :height="'lg'" :label="'Remember me'" name="remember" />
-                    </label>
+                <div class="tw-border tw-border-neutral-200">
+                    <div>
+                        <label class="tw-flex tw-items-center">
+                            <Checkbox v-model="remember3" :height="'lg'" :label="'LG Checkbox'" name="remember" />
+                        </label>
+                    </div>
                 </div>
             </div>
 
-            <div class="tw-grid tw-gap-2 tw-grid-cols-1 sm:tw-grid-cols-2 lg:tw-grid-cols-5 xl:tw-grid-cols-6 2xl:tw-grid-cols-8 tw-font-normal">
+            <div class="tw-grid tw-gap-2 tw-grid-cols-1 sm:tw-grid-cols-2 lg:tw-grid-cols-5 xl:tw-grid-cols-6 2xl:tw-grid-cols-8">
                 <div class="tw-flex tw-items-start tw-justify-start tw-block tw-border tw-border-neutral-200">
                     <div>
-                        <FormInputLabel value="Status Group" />
-                        <RadioGroup :selections="statusGroup.selection" :size="'sm'" v-bind:selected.sync="statusGroup.selected" />
-                        <p>Selected Option: {{ statusGroup.selected }}</p>
+                        <FormInputLabel :height="'md'" value="SM : Status Group" />
+                        <RadioGroup
+                            :selections="statusGroup.selection"
+                            :size="'sm'"
+                            class="tw-border tw-border-neutral-200"
+                            v-bind:selected.sync="statusGroup.selected" />
+                        <div>Selected Option: {{ statusGroup.selected }}</div>
                     </div>
                 </div>
                 <div class="tw-flex tw-items-start tw-justify-start tw-block tw-border tw-border-neutral-200">
                     <div>
-                        <FormInputLabel value="Transaction Group" />
-                        <RadioGroup :selections="transactionGroup.selection" :size="'md'" v-bind:selected.sync="transactionGroup.selected" />
-                        <p>Selected Option: {{ transactionGroup.selected }}</p>
+                        <FormInputLabel :height="'md'" value="MD : Transaction Group" />
+                        <RadioGroup
+                            :selections="transactionGroup.selection"
+                            :size="'md'"
+                            class="tw-border tw-border-neutral-200"
+                            v-bind:selected.sync="transactionGroup.selected" />
+                        <div>Selected Option: {{ transactionGroup.selected }}</div>
                     </div>
                 </div>
                 <div class="tw-flex tw-items-start tw-justify-start tw-block tw-border tw-border-neutral-200">
                     <div>
-                        <FormInputLabel value="Category Group" />
-                        <RadioGroup :selections="categoryGroup.selection" :size="'lg'" v-bind:selected.sync="categoryGroup.selected" />
-                        <p>Selected Option: {{ categoryGroup.selected }}</p>
+                        <FormInputLabel :height="'md'" value="LG : Category Group" />
+                        <RadioGroup
+                            :selections="categoryGroup.selection"
+                            :size="'lg'"
+                            class="tw-border tw-border-neutral-200"
+                            v-bind:selected.sync="categoryGroup.selected" />
+                        <div>Selected Option: {{ categoryGroup.selected }}</div>
+                    </div>
+                </div>
+                <div class="tw-flex tw-items-start tw-justify-start tw-block tw-border tw-border-neutral-200">
+                    <div>
+                        <FormInputLabel :height="'md'" value="SM : Gender Group" />
+                        <RadioGroup
+                            :selections="genderGroup.selection"
+                            :size="'sm'"
+                            class="tw-border tw-border-neutral-200"
+                            v-bind:selected.sync="genderGroup.selected" />
+                        <div>Selected Option: {{ genderGroup.selected }}</div>
+                    </div>
+                </div>
+                <div class="tw-flex tw-items-start tw-justify-start tw-block tw-border tw-border-neutral-200">
+                    <div>
+                        <FormInputLabel :height="'md'" value="SM : Plan Group" />
+                        <RadioGroup
+                            :selections="userGroup.selection"
+                            :size="'sm'"
+                            class="tw-border tw-border-neutral-200"
+                            v-bind:selected.sync="userGroup.selected" />
+                        <p>Selected Option: {{ userGroup.selected }}</p>
                     </div>
                 </div>
             </div>
@@ -165,7 +203,7 @@
                 </div>
             </div>
 
-            <div v-if="false" class="tw-grid tw-gap-2 tw-grid-cols-1 sm:tw-grid-cols-2 lg:tw-grid-cols-5 xl:tw-grid-cols-6 2xl:tw-grid-cols-8">
+            <div v-if="true" class="tw-grid tw-gap-2 tw-grid-cols-1 sm:tw-grid-cols-2 lg:tw-grid-cols-5 xl:tw-grid-cols-6 2xl:tw-grid-cols-8">
                 <div class="tw-block tw-border tw-border-neutral-200 tw-col-span-2">
                     <p class="tw-text-sm tw-leading-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus nec facilisis lacus. Phasellus convallis commodo lorem. Nam vitae dignissim elit.</p>
                 </div>
@@ -180,7 +218,7 @@
                 </div>
             </div>
 
-            <div v-if="false" class="tw-grid tw-gap-2 tw-grid-cols-1 sm:tw-grid-cols-2 lg:tw-grid-cols-5 xl:tw-grid-cols-6 2xl:tw-grid-cols-8">
+            <div v-if="true" class="tw-grid tw-gap-2 tw-grid-cols-1 sm:tw-grid-cols-2 lg:tw-grid-cols-5 xl:tw-grid-cols-6 2xl:tw-grid-cols-8">
                 <div class="tw-block tw-border tw-border-neutral-200 tw-col-span-2">
                     <p class="tw-text-sm tw-font-thin tw-leading-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus nec facilisis lacus. Phasellus convallis commodo lorem. Nam vitae dignissim elit.</p>
                     <p class="tw-text-sm tw-font-extralight tw-leading-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus nec facilisis lacus. Phasellus convallis commodo lorem. Nam vitae dignissim elit.</p>
@@ -245,7 +283,7 @@ export default {
     mounted(){
         let that = this;
 
-        console.log(that.$_capitalize('Lodash Hello'));
+        console.log(that.$_capitalize('lodash hello'));
     },
 
     data(){
@@ -253,35 +291,51 @@ export default {
             mountains: [],
             statusGroup: {
                 selection: [
-                    {text : 'FOR APPROVAL', value: 0},
-                    {text : 'APPROVED', value: 1},
-                    {text : 'PROCESSING', value: 2},
-                    {text : 'REJECTED', value: 3},
-                    {text : 'COMPLETE', value: 4},
+                    {text : 'For Approval', value: 0},
+                    {text : 'Approved', value: 1},
+                    {text : 'Processing', value: 2},
+                    {text : 'Rejected', value: 3},
+                    {text : 'Complete', value: 4},
                 ],
                 selected: 3
             },
             transactionGroup: {
                 selection: [
-                    {text : 'CASH', value: 0},
-                    {text : 'PRE PAID', value: 1},
-                    {text : 'POST PAID', value: 2},
-                    {text : 'CARD', value: 3},
-                    {text : 'DEBIT', value: 4},
+                    {text : 'Cash', value: 0},
+                    {text : 'Pre Paid', value: 1},
+                    {text : 'Post Paid', value: 2},
+                    {text : 'Card', value: 3},
+                    {text : 'Debit', value: 4},
                 ],
                 selected: 3
             },
             categoryGroup: {
                 selection: [
-                    {text : 'CHARMS', value: 0},
-                    {text : 'BRACELETS', value: 1},
-                    {text : 'BROOCHES AND PIN', value: 2},
-                    {text : 'NECKLACES', value: 3},
-                    {text : 'EARRINGS', value: 4},
-                    {text : 'RINGS', value: 5},
-                    {text : 'POLYESTER', value: 6},
+                    {text : 'Charms', value: 0},
+                    {text : 'Bracelets', value: 1},
+                    {text : 'Brooches and Pins', value: 2},
+                    {text : 'Necklaces', value: 3},
+                    {text : 'Earrings', value: 4},
+                    {text : 'Rings', value: 5},
+                    {text : 'Polyester', value: 6},
                 ],
                 selected: 3
+            },
+            genderGroup: {
+                selection: [
+                    {text : 'Male', value: 0},
+                    {text : 'Female', value: 1},
+                ],
+                selected: null
+            },
+            userGroup: {
+                selection: [
+                    {text : 'Free', value: 0},
+                    {text : 'Individual', value: 1},
+                    {text : 'Startup', value: 2},
+                    {text : 'Corporate', value: 3},
+                ],
+                selected: null
             },
             search: '',
             anotherSearch: '',

@@ -2,7 +2,7 @@
     display: none;
 }
 
-/*Datetime picker border Theme [lighter] color*/
+/*Datetime picker border Theme border [lighter] color*/
 .daterangepicker {
     position: absolute;
     font-family: inherit;
@@ -28,7 +28,7 @@
     content: '';
 }
 
-/*Datetime picker arrow background Theme [lighter] color*/
+/*Datetime picker arrow border bottom Theme [lighter] color*/
 .daterangepicker:before {
     top: -7px;
     border-right: 7px solid transparent;
@@ -130,7 +130,7 @@
     border: none;
 }
 
-/*Datetime picker arrow background Theme [accent] color*/
+/*Datetime picker arrow border Theme [accent] color*/
 .daterangepicker .calendar-table .next span, .daterangepicker .calendar-table .prev span {
     color: #fff;
     /*border: solid #374151;*/

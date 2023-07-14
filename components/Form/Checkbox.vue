@@ -1,21 +1,17 @@
 <template>
-    <span class="tw-inline-flex tw-items-center tw-justify-start">
+    <span class="tw-flex tw-items-center tw-justify-start tw-cursor-pointer">
         <input
             type="checkbox"
             :value="value"
             v-model="proxyChecked"
-            :class="[heightClass]"
-            class="tw-form-checkbox tw-text-darker tw-border-accent focus:tw-ring-transparent focus:tw-border-lighter focus:tw-ring">
-        <span :class="[fontClass]" class="tw-ml-1">{{label}}</span>
+            :class="[heightClass, inputClass]"
+            class="tw-form-checkbox tw-text-darker tw-border-light focus:tw-ring-transparent focus:tw-border-lighter focus:tw-ring">
+        <span :class="[fontClass]" class="tw-ml-1" v-text="label"></span>
     </span>
 </template>
 
 <script>
     export default {
-        model: {
-            prop: "checked",
-            event: "change",
-        },
 
         props: {
             label: {
@@ -47,24 +43,27 @@
             heightClass() {
                 return {
                     [null]: 'tw-h-3.5 tw-w-3.5',
-                    // 0.75rem
                     'sm': 'tw-h-3 tw-w-3',
-                    // 1rem
                     'md': 'tw-h-3.5 tw-w-3.5',
-                    // 1.5rem
-                    'lg': 'tw-h-6 tw-w-6',
+                    'lg': 'tw-h-5 tw-w-5',
                 }[this.height]
             },
 
             fontClass(){
                 return {
-                    [null]: 'tw-text-base',
-                    // 0.875rem
+                    [null]: 'tw-text-base tw-font-medium',
                     'sm': 'tw-text-sm',
-                    // 1rem
-                    'md': 'tw-text-base',
-                    // 1.25rem
-                    'lg': 'tw-text-xl'
+                    'md': 'tw-text-base tw-font-medium',
+                    'lg': 'tw-text-xl tw-font-semibold'
+                }[this.height]
+            },
+
+            inputClass(){
+                return {
+                    [null]: '',
+                    'sm': '',
+                    'md': '',
+                    'lg': 'tw-border-2'
                 }[this.height]
             },
         },
